@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DriverMenu"></activity>
+        <activity android:name=".DriverMenu" />
+        <activity android:name=".Insurance_registration"></activity>
     </application>
 
 </manifest>

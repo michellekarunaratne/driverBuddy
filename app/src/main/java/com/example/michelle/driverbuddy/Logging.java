@@ -10,6 +10,7 @@ public class Logging extends AppCompatActivity {
 
     public Button btn_logIn;
 
+
     public void driverMenuLogIn()
     {
         btn_logIn=(Button)findViewById(R.id.btn_logIn);
@@ -23,11 +24,13 @@ public class Logging extends AppCompatActivity {
         });
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logging);
         driverMenuLogIn();
+
     }
 
 

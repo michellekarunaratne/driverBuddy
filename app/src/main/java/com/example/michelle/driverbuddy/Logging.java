@@ -11,7 +11,7 @@ public class Logging extends AppCompatActivity {
     public Button btn_logIn;
 
 
-    public void driverMenuLogIn()
+    /*public void driverMenuLogIn()
     {
         btn_logIn=(Button)findViewById(R.id.btn_logIn);
         btn_logIn.setOnClickListener(new View.OnClickListener() {
@@ -22,6 +22,19 @@ public class Logging extends AppCompatActivity {
                 startActivity(nextActivity);
             }
         });
+    }*/
+
+    public void PoliceOfficerMenuLogIn()
+    {
+        btn_logIn=(Button)findViewById(R.id.btn_logIn);
+        btn_logIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent nextActivity= new Intent(Logging.this,PoliceOfficerMenu.class);
+                startActivity(nextActivity);
+            }
+        });
     }
 
 
@@ -29,7 +42,8 @@ public class Logging extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logging);
-        driverMenuLogIn();
+        //driverMenuLogIn();
+        PoliceOfficerMenuLogIn();
 
     }
 

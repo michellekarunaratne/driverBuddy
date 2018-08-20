@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Fine">
+    <item android:title="Profile">
         <menu>
             <group
-                android:id="@+id/issue_fine"
+                android:id="@+id/fine_history"
                 android:checkableBehavior="single">
 
-                <item android:id="@+id/nav_write_fine"
-                    android:title="@string/issue_fine_1"
-                    android:icon="@mipmap/ic_action_writing_1"/>
+                <item android:id="@+id/nav_fine_history"
+                    android:title="@string/fine_history_1"
+                    android:icon="@mipmap/fine_history"/>
 
             </group>
         </menu>
     </item>
 
-    <item android:title="License">
+    <item android:title="Fine">
         <menu>
             <group
-                android:id="@+id/validity"
+                android:id="@+id/edit_fine"
                 android:checkableBehavior="single">
-                <item android:id="@+id/nav_check_license"
-                    android:title="@string/check_license"
-                    android:icon="@mipmap/ic_action_driving_license"/>
+                <item android:id="@+id/nav_edit_fine"
+                    android:title="@string/edit_fine"
+                    android:icon="@mipmap/baseline_edit_black_48"/>
 
             </group>
         </menu>
@@ -35,11 +35,11 @@
                 android:checkableBehavior="single">
 
                 <item android:id="@+id/nav_settings"
-                    android:icon="@mipmap/ic_action_settings_work_tool"
+                    android:icon="@mipmap/settings"
                     android:title="@string/settings"/>
 
                 <item android:id="@+id/nav_log_out"
-                    android:icon="@mipmap/ic_action_logout"
+                    android:icon="@mipmap/log_out"
                     android:title="@string/logout_1"/>
             </group>
         </menu>

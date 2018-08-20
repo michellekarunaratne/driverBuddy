@@ -32,6 +32,8 @@
     <string name="edit_profile_data">Edit Profile Data</string>
     <string name="issue_fine_1">Issue Fine</string>
     <string name="check_license">Check License</string>
+    <string name="edit_fine">Edit Fine</string>
+    <string name="fine_history_1">Fine History</string>
     <string name="logout_1">Log Out</string>
     <string name="open">open</string>
     <string name="close">close</string>

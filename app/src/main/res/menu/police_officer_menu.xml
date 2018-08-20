@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Fine">
+        <menu>
+            <group
+                android:id="@+id/issue_fine"
+                android:checkableBehavior="single">
+
+                <item android:id="@+id/nav_write_fine"
+                    android:title="@string/issue_fine_1"
+                    android:icon="@mipmap/ic_action_writing_1"/>
+
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="License">
+        <menu>
+            <group
+                android:id="@+id/validity"
+                android:checkableBehavior="single">
+                <item android:id="@+id/nav_check_license"
+                    android:title="@string/check_license"
+                    android:icon="@mipmap/ic_action_driving_license"/>
+
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Account">
+        <menu>
+            <group
+                android:id="@+id/account_settings"
+                android:checkableBehavior="single">
+
+                <item android:id="@+id/nav_settings"
+                    android:icon="@mipmap/ic_action_settings_work_tool"
+                    android:title="@string/settings"/>
+
+                <item android:id="@+id/nav_log_out"
+                    android:icon="@mipmap/ic_action_logout"
+                    android:title="@string/logout_1"/>
+            </group>
+        </menu>
+    </item>
+
+</menu>

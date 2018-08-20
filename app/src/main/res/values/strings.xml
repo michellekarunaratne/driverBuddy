@@ -20,15 +20,11 @@
     <string name="distress">DISTRESS</string>
     <string name="driver_profile">Driver Profile</string>
     <string name="license_number">License Number</string>
-    <string name="issue_fine">Issue Fine</string>
-    <string name="logout_1">Log Out</string>
-    <string name="settings_1">Settings</string>
-    <string name="open">open</string>
-    <string name="close">close</string>
-    <string name="officer">Officer\'s photo</string>
-    <string name="officer_s_name">Officer\'s Name</string>
-    <string name="officer_s_id">Officer\'s ID</string>
-    <string name="issue_fine_1">Issue Fine</string>
-    <string name="check_license">Check License</string>
-
+    <string name="email">Email</string>
+    <string name="license">License</string>
+    <string name="pay_fine">Pay Fine</string>
+    <string name="report_accident">Report Accident</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="mobile">Mobile</string>
+    <string name="edit_profile_data">Edit Profile Data</string>
 </resources>

@@ -4,9 +4,6 @@
     <string name="app_logo">app_logo</string>
     <string name="user_name">User Name</string>
     <string name="password">Password</string>
-    <string name="officer_s_id">Officer\'s Id</string>
-    <string name="officer_s_name">Officer\'s Name</string>
-    <string name="officer">Officer</string>
     <string name="log_in">Log In</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="sign_up">Sign Up</string>
@@ -24,18 +21,28 @@
     <string name="driver_profile">Driver Profile</string>
     <string name="license_number">License Number</string>
     <string name="email">Email</string>
-    <string name="license">License</string>
     <string name="pay_fine">Pay Fine</string>
     <string name="report_accident">Report Accident</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="mobile">Mobile</string>
     <string name="edit_profile_data">Edit Profile Data</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="home_name">Home</string>
+
+    //Police Officer
+    <string name="officer_s_id">Officer\'s Id</string>
+    <string name="officer_s_name">Officer\'s Name</string>
+    <string name="officer">Officer</string>
     <string name="issue_fine_1">Issue Fine</string>
     <string name="check_license">Check License</string>
     <string name="edit_fine">Edit Fine</string>
     <string name="fine_history_1">Fine History</string>
     <string name="logout_1">Log Out</string>
-    <string name="open">open</string>
-    <string name="close">close</string>
-    <string name="home_name">Home</string>
+    <string name="check">Check</string>
+    <string name="ln">License Number</string>
+    <string name="desc1">Enter the license number you want to check</string>
+    <string name="license">License</string>
+
+
 </resources>

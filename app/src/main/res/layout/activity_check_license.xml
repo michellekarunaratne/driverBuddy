@@ -14,13 +14,13 @@
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="184dp"
-        android:text="License Number"
-        android:textSize="16dp"
+        android:text="@string/ln"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.077" />
 
     <EditText
         android:id="@+id/editText10"
@@ -39,17 +39,20 @@
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="280dp"
+        android:layout_height="46dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Check"
-        android:textSize="20dp"
+        android:background="@drawable/issue_fine_round_button"
+        android:text="@string/check"
+        android:textSize="20sp"
         android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,13 +68,32 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="52dp"
-        android:text="Check License"
+        android:text="@string/check_license"
         android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="24dp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="112dp"
+        android:text="@string/desc1"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.234" />
 
 </android.support.constraint.ConstraintLayout>

@@ -59,6 +59,7 @@ public class PoliceOfficerMenu extends AppCompatActivity {
         });
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (ntoggle.onOptionsItemSelected(item)){

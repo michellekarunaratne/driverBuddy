@@ -22,24 +22,26 @@
         android:layout_width="218dp"
         android:layout_height="33dp"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="24dp"
+        android:layout_marginLeft="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="25dp"
         android:text="@string/officer_s_id"
         android:textSize="18sp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="24dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="214dp"
         android:layout_height="31dp"
+        android:layout_alignLeft="@+id/textView"
         android:layout_alignStart="@+id/textView"
         android:layout_alignTop="@+id/imageView"
         android:text="@string/officer_s_name"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_alignLeft="@+id/textView" />
+        android:textAppearance="@style/TextAppearance.AppCompat" />
 </RelativeLayout>

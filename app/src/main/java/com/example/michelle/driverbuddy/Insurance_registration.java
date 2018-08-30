@@ -15,7 +15,7 @@ public class Insurance_registration extends AppCompatActivity {
            but1.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
-                   Intent b= new Intent(Insurance_registration.this,insurance_profile.class);
+                   Intent b= new Intent(Insurance_registration.this,Logging.class);
                    startActivity(b);
                }
            });

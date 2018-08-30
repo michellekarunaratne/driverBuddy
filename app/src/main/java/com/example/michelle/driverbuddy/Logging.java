@@ -21,7 +21,7 @@ public class Logging extends AppCompatActivity {
                 EditText username = (EditText)findViewById(R.id.editText);
                 EditText password = (EditText)findViewById(R.id.editText2);
                 if(username.getText().toString().equals("abc") && password.getText().toString().equals("abc")) {
-                    Intent nextActivity = new Intent(Logging.this, Insurance_registration.class);
+                    Intent nextActivity = new Intent(Logging.this, insurance_profile.class);
                     startActivity(nextActivity);
                 }
                 else

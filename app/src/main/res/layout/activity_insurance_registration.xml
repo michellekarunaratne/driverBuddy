@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="170dp"
+        android:layout_height="35dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -26,13 +26,13 @@
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="170dp"
+        android:layout_height="35dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Email"
         android:textColor="@color/colorPrimaryDark"
 
@@ -44,13 +44,13 @@
 
     <TextView
         android:id="@+id/textView29"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="170dp"
+        android:layout_height="35dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/last_name"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
@@ -62,42 +62,43 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="wrap_content"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="@string/nic"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/editText5"
 
+        app:layout_constraintEnd_toStartOf="@+id/editText5"
         app:layout_constraintHorizontal_bias="0.146"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
         android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="170dp"
+        android:layout_height="35dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="40dp"
         android:text="@string/user_id"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/editText12"
-        app:layout_constraintHorizontal_bias="0.194"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
     <TextView
         android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="170dp"
+        android:layout_height="35dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -113,7 +114,7 @@
 
     <TextView
         android:id="@+id/textView16"
-        android:layout_width="106dp"
+        android:layout_width="170dp"
         android:layout_height="56dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
@@ -258,13 +259,13 @@
 
     <TextView
         android:id="@+id/textView32"
-        android:layout_width="137dp"
+        android:layout_width="170dp"
         android:layout_height="68dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:text="Registration no "
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"

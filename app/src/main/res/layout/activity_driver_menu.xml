@@ -190,6 +190,7 @@
     <android.support.design.widget.NavigationView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/nav_view"
         app:menu="@menu/navigation_menu"
         app:headerLayout="@layout/driver_menu_header"
         android:layout_gravity="start"

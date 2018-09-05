@@ -21,7 +21,11 @@
         <activity android:name=".insurance_profile" />
         <activity android:name=".insurance_edit_profile" />
         <activity android:name=".Insurance_registration" />
-        <activity android:name=".insurance_track_driver"></activity>
+        <activity android:name=".insurance_track_driver" />
+        <activity android:name=".insurance_popwindow"
+            android:theme="@style/AppTheme.CustomTheme">
+        </activity>
+
     </application>
 
 </manifest>

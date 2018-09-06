@@ -9,7 +9,7 @@ import android.widget.EditText;
 
 public class Logging extends AppCompatActivity {
 
-    public Button btn_logIn;
+    public Button btn_logIn,btn_signin;
 
     public void driverMenuLogIn()
     {
@@ -29,8 +29,25 @@ public class Logging extends AppCompatActivity {
                     Intent nextActivity1 = new Intent(Logging.this, DriverMenu.class);
                     startActivity(nextActivity1);
                 }
+
+
             }
         });
+        btn_signin=(Button)findViewById(R.id.btn_signUp);
+        btn_signin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+                    Intent nextActivity1 = new Intent(Logging.this, Insurance_registration.class);
+                    startActivity(nextActivity1);
+
+
+
+            }
+        });
+
     }
 
     @Override

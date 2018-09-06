@@ -7,18 +7,34 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class WriteFine extends AppCompatActivity {
+public class RespondDistress extends AppCompatActivity {
 
 
+    public Button button_track_distress_driver;
+
+    public void track_distress_button()
+    {
+        button_track_distress_driver=(Button)findViewById(R.id.button_track_distress_driver);
+        button_track_distress_driver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent nextActivity;
+                nextActivity = new Intent(RespondDistress.this,TrackDistressDriver.class);
+                startActivity(nextActivity);
+            }
+        });
+    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_write_fine);
+        setContentView(R.layout.activity_respond_distress);
         //add back button
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        track_distress_button();
     }
 
     @Override

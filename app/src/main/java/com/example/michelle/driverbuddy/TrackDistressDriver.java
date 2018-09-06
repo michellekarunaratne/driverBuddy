@@ -6,16 +6,12 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-
-public class WriteFine extends AppCompatActivity {
-
-
-
+public class TrackDistressDriver extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_write_fine);
+        setContentView(R.layout.activity_track_distress_driver);
         //add back button
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -30,4 +26,6 @@ public class WriteFine extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }

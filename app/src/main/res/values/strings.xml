@@ -36,13 +36,24 @@
     <string name="officer">Officer</string>
     <string name="issue_fine_1">Issue Fine</string>
     <string name="check_license">Check License</string>
+    <string name="distress_respond">Respond to distress driver</string>
     <string name="edit_fine">Edit Fine</string>
     <string name="fine_history_1">Fine History</string>
     <string name="logout_1">Log Out</string>
     <string name="check">Check</string>
+    <string name="track_driver">Track Driver</string>
     <string name="ln">License Number</string>
     <string name="desc1">Enter the license number you want to check</string>
     <string name="license">License</string>
+    <string name="title_activity_fine_history_officer">FineHistoryOfficer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_edit_fine_officer">EditFineOfficer</string>
+
 
 
 </resources>

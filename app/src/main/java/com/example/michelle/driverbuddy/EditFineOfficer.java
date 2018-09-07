@@ -9,16 +9,16 @@ import android.widget.Button;
 
 public class EditFineOfficer extends AppCompatActivity {
 
-    Button edit_fine_button;
+    Button update_fine_button;
     public void edit_fine_officer()
     {
-        edit_fine_button=(Button)findViewById(R.id.edit_fine_button);
-        edit_fine_button.setOnClickListener(new View.OnClickListener() {
+        update_fine_button=(Button)findViewById(R.id.update_fine_button);
+        update_fine_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Intent nextActivity;
-                nextActivity = new Intent(EditFineOfficer.this,WriteFine.class);
+                nextActivity = new Intent(EditFineOfficer.this,UpdateFine.class);
                 startActivity(nextActivity);
             }
         });

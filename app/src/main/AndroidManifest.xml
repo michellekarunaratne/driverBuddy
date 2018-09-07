@@ -31,17 +31,16 @@
         <activity
             android:name=".TrackDistressDriver"
             android:label="@string/track_driver" />
-
-        <activity android:name=".EditFineOfficer"
-            android:label="@string/edit_fine"/>
-
-        <activity android:name=".FineHistoryOfficer"
-            android:label="@string/fine_history_1"/>
-
-        <activity android:name=".OfficerSettings"
-            android:label="@string/settings">
-
-        </activity>
+        <activity
+            android:name=".EditFineOfficer"
+            android:label="@string/edit_fine" />
+        <activity
+            android:name=".FineHistoryOfficer"
+            android:label="@string/fine_history_1" />
+        <activity
+            android:name=".OfficerSettings"
+            android:label="@string/settings"></activity>
+        <activity android:name=".UpdateFine"></activity>
     </application>
 
 </manifest>

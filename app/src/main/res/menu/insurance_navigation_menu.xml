@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Profile">
+        <menu>
+            <group
+                android:id="@+id/profile"
+                android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/acc_histroy"
+                    android:icon="@mipmap/fine_history"
+                    android:title="Accident report History" />
+
+                <item android:id="@+id/acc_pictures"
+                    android:icon="@drawable/picture_icon"
+                    android:title="Pictures" />
+
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Account">
+        <menu>
+            <group
+                android:id="@+id/account_settings"
+                android:checkableBehavior="single">
+
+                <item android:id="@+id/acc_setting"
+                    android:icon="@mipmap/settings"
+                    android:title="@string/settings" />
+
+                <item android:id="@+id/acc_logout"
+                    android:icon="@mipmap/log_out"
+                    android:title="@string/log_out" />
+            </group>
+        </menu>
+    </item>
+</menu>

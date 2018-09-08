@@ -20,7 +20,6 @@
         <activity android:name=".DriverEditProfile" />
         <activity android:name=".FineHistory" />
         <activity android:name=".Payment"></activity>
-        <activity android:name=".DriverEditProfile" />
         <activity android:name=".PoliceOfficerMenu" />
         <activity
             android:name=".WriteFine"

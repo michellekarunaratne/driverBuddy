@@ -21,15 +21,15 @@ public class Logging extends AppCompatActivity {
             public void onClick(View view) {
                 EditText username = (EditText)findViewById(R.id.editText);
                 EditText password = (EditText)findViewById(R.id.editText2);
-                if(username.getText().toString().equals("insurance") && password.getText().toString().equals("abc")) {
+                if(username.getText().toString().trim().equals("insurance") && password.getText().toString().equals("abc")) {
                     Intent nextActivity = new Intent(Logging.this, insurance_profile.class);
                     startActivity(nextActivity);
                 }
-                else if (username.getText().toString().equals("police") && password.getText().toString().equals("abc")){
+                else if (username.getText().toString().trim().equals("police") && password.getText().toString().equals("abc")){
                     Intent nextActivity= new Intent(Logging.this,PoliceOfficerMenu.class);
                     startActivity(nextActivity);
                 }
-                else if (username.getText().toString().equals("driver") && password.getText().toString().equals("abc"))
+                else if (username.getText().toString().trim().equals("driver") && password.getText().toString().equals("abc"))
                 {
                     Intent nextActivity1 = new Intent(Logging.this, DriverMenu.class);
                     startActivity(nextActivity1);

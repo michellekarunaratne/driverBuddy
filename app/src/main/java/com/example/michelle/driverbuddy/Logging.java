@@ -19,6 +19,7 @@ public class Logging extends AppCompatActivity {
 
                 Intent nextActivity= new Intent(Logging.this,DriverMenu.class);
                 startActivity(nextActivity);
+                finish();
             }
         });
     }

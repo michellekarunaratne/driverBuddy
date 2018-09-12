@@ -2,7 +2,7 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Profile">
+    <item android:title="@string/profile">
         <menu>
             <group
                 android:id="@+id/profile"
@@ -11,13 +11,12 @@
                 <item
                     android:id="@+id/nav_histroy"
                     android:icon="@mipmap/fine_history"
-                    android:title="Fine History" />
+                    android:title="@string/fine_history" />
 
             </group>
         </menu>
     </item>
-
-    <item android:title="Account">
+    <item android:title="@string/account">
         <menu>
             <group
                 android:id="@+id/account_settings"

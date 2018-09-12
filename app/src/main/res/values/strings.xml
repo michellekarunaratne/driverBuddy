@@ -27,4 +27,8 @@
     <string name="edit_profile">Edit Profile</string>
     <string name="mobile">Mobile</string>
     <string name="edit_profile_data">Edit Profile Data</string>
+    <string name="profile">Profile</string>
+    <string name="fine_history">Fine History</string>
+    <string name="account">Account</string>
+
 </resources>

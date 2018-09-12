@@ -188,13 +188,16 @@
     </android.support.constraint.ConstraintLayout>
 
     <android.support.design.widget.NavigationView
+        android:id="@+id/navigationView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:menu="@menu/navigation_menu"
-        app:headerLayout="@layout/driver_menu_header"
         android:layout_gravity="start"
-        android:theme="@style/NavigationTheme">
+        android:theme="@style/NavigationTheme"
+        app:headerLayout="@layout/driver_menu_header"
+        app:menu="@menu/navigation_menu">
 
     </android.support.design.widget.NavigationView>
+    
+
 
 </android.support.v4.widget.DrawerLayout>

@@ -17,7 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".DriverMenu" />
-        <activity android:name=".DriverEditProfile"></activity>
+        <activity android:name=".DriverProfileEditActivity"
+            android:parentActivityName=".DriverMenu">
+        </activity>
     </application>
 
 </manifest>

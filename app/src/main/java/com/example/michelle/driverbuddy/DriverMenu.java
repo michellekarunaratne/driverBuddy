@@ -1,27 +1,47 @@
 package com.example.michelle.driverbuddy;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v4.view.GravityCompat;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
-public class DriverMenu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class DriverMenu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
-    NavigationView navigationView;
+
+    public Button payfine_bttn;
+
+    public void setPayfine_bttn()
+    {
+        payfine_bttn=(Button)findViewById(R.id.payfine_bttn);
+        payfine_bttn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent nextActivity= new Intent(DriverMenu.this,Payment.class);
+                startActivity(nextActivity);
+            }
+        });
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver_menu);
+        setPayfine_bttn();
 
         drawerLayout=(DrawerLayout)findViewById(R.id.drawer_layout);
+        NavigationView navigationView =findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
         actionBarDrawerToggle= new ActionBarDrawerToggle(this,drawerLayout,R.string.drawer_open,R.string.drawer_close);
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
@@ -29,45 +49,30 @@ public class DriverMenu extends AppCompatActivity implements NavigationView.OnNa
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        navigationView=(NavigationView) findViewById(R.id.navigationView);
-        navigationView.setNavigationItemSelectedListener(this);
-
     }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.nav_histroy:
+                Intent newActivity= new Intent(DriverMenu.this,FineHistory.class);
+                startActivity(newActivity);
+                break;
 
+        }
+
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return false;
+    }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        if( actionBarDrawerToggle.onOptionsItemSelected(item)) {
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(actionBarDrawerToggle.onOptionsItemSelected(item))
+        {
+
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
-
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_setting) {
-            Intent editProfileIntent=new Intent(DriverMenu.this,DriverProfileEditActivity.class);
-            startActivity(editProfileIntent);
-        }
-
-        if (id == R.id.nav_logout) {
-            Intent editProfileIntent=new Intent(DriverMenu.this,Logging.class);
-            startActivity(editProfileIntent);
-            finish();
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
-
-
 }
-

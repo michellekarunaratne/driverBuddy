@@ -34,7 +34,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button2"
+            app:layout_constraintTop_toBottomOf="@+id/payfine_bttn"
             app:layout_constraintVertical_bias="0.62" />
 
         <TextView
@@ -102,7 +102,7 @@
             app:layout_constraintTop_toBottomOf="@+id/editText3" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/payfine_bttn"
             android:layout_width="170dp"
             android:layout_height="74dp"
             android:layout_alignEnd="@+id/editText3"
@@ -188,16 +188,14 @@
     </android.support.constraint.ConstraintLayout>
 
     <android.support.design.widget.NavigationView
-        android:id="@+id/navigationView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:theme="@style/NavigationTheme"
+        android:id="@+id/nav_view"
+        app:menu="@menu/navigation_menu"
         app:headerLayout="@layout/driver_menu_header"
-        app:menu="@menu/navigation_menu">
+        android:layout_gravity="start"
+        android:theme="@style/NavigationTheme">
 
     </android.support.design.widget.NavigationView>
-    
-
 
 </android.support.v4.widget.DrawerLayout>

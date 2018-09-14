@@ -27,9 +27,9 @@
                 android:id="@+id/account_settings"
                 android:checkableBehavior="single">
 
-                <item android:id="@+id/acc_setting"
-                    android:icon="@mipmap/settings"
-                    android:title="@string/settings" />
+                <item android:id="@+id/acc_edit"
+                    android:icon="@drawable/edit_icon"
+                    android:title= "Edit Profile" />
 
                 <item android:id="@+id/acc_logout"
                     android:icon="@mipmap/log_out"

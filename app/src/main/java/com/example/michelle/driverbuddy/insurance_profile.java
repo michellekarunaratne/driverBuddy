@@ -22,7 +22,7 @@ public class insurance_profile extends AppCompatActivity {
     public TextView edit;
 
     public void init()
-    {
+    /*{
         edit = (TextView) findViewById(R.id.textView33);
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,7 +31,8 @@ public class insurance_profile extends AppCompatActivity {
                 startActivity(a);
 
             }
-        });
+        });*/
+    {
         but3 = (Button)findViewById(R.id.button3);
         but3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,8 +69,13 @@ public class insurance_profile extends AppCompatActivity {
                 int id=item.getItemId();
                 if(id==R.id.acc_logout)
                 {
-                    Intent c=new Intent(insurance_profile.this,Logging.class);
+                    final Intent c=new Intent(insurance_profile.this,Logging.class);
                     startActivity(c);
+                }
+                else if(id==R.id.acc_edit)
+                {
+                    Intent e=new Intent(insurance_profile.this,insurance_edit_profile.class);
+                    startActivity(e);
                 }
 
 

@@ -43,6 +43,7 @@
     <string name="check">Check</string>
     <string name="track_driver">Track Driver</string>
     <string name="ln">License Number</string>
+    <string name="update">Update Fine</string>
     <string name="desc1">Enter the license number you want to check</string>
     <string name="license">License</string>
     <string name="title_activity_fine_history_officer">FineHistoryOfficer</string>

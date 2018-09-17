@@ -17,9 +17,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".DriverMenu" />
-        <activity android:name=".DriverEditProfile" />
-        <activity android:name=".FineHistory" />
-        <activity android:name=".Payment"></activity>
+        <activity android:name=".DriverEditProfile"
+            android:label="Edit Profile"/>
+
+        <activity android:name=".FineHistory"
+            android:label="@string/fine_history_1"/>
+
+        <activity android:name=".Payment"
+            android:label="Payment Details">
+
+        </activity>
         <activity android:name=".PoliceOfficerMenu" />
         <activity
             android:name=".WriteFine"
@@ -41,12 +48,21 @@
             android:label="@string/fine_history_1" />
         <activity
             android:name=".OfficerSettings"
-            android:label="@string/settings"></activity>
-        <activity android:name=".UpdateFine"></activity>
+            android:label="@string/settings">
+
+        </activity>
+        <activity android:name=".UpdateFine"
+            android:label="@string/update"
+            >
+
+        </activity>
         <activity android:name=".insurance_profile" />
-        <activity android:name=".insurance_edit_profile" />
-        <activity android:name=".Insurance_registration" />
-        <activity android:name=".insurance_track_driver" />
+        <activity android:name=".insurance_edit_profile"
+            android:label="Edit Profile"/>
+        <activity android:name=".Insurance_registration"
+            android:label="Registration"/>
+        <activity android:name=".insurance_track_driver"
+            android:label="Track Driver"/>
         <activity android:name=".insurance_popwindow"
             android:theme="@style/AppTheme.CustomTheme">
         </activity>

@@ -10,13 +10,14 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/background_image_1">
 
 
         <Button
             android:id="@+id/button"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="144dp"
+            android:layout_height="138dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_gravity=""
@@ -32,10 +33,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/payfine_bttn"
-            app:layout_constraintVertical_bias="0.62" />
+            app:layout_constraintVertical_bias="0.589" />
 
         <TextView
             android:id="@+id/textView11"
@@ -95,16 +96,15 @@
             android:layout_alignStart="@+id/textView11"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginTop="20dp"
             android:ems="10"
             android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText3" />
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView13"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
             android:id="@+id/payfine_bttn"
-            android:layout_width="170dp"
-            android:layout_height="74dp"
+            android:layout_width="157dp"
+            android:layout_height="50dp"
             android:layout_alignEnd="@+id/editText3"
             android:layout_alignRight="@+id/editText3"
             android:layout_alignTop="@+id/button3"
@@ -114,32 +114,34 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="25dp"
+            android:background="@drawable/issue_fine_round_button"
             android:text="@string/pay_fine"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.829"
+            app:layout_constraintHorizontal_bias="0.315"
             app:layout_constraintStart_toEndOf="@+id/button3"
             app:layout_constraintTop_toBottomOf="@+id/editText4"
-            app:layout_constraintVertical_bias="0.335" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/button3"
-            android:layout_width="173dp"
-            android:layout_height="74dp"
+            android:layout_width="157dp"
+            android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="25dp"
+            android:background="@drawable/issue_fine_round_button"
             android:text="@string/report_accident"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/button"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText4"
-            app:layout_constraintVertical_bias="0.42" />
+            app:layout_constraintBaseline_toBaselineOf="@+id/payfine_bttn"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView13"
@@ -165,11 +167,10 @@
             android:layout_alignStart="@+id/button"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginTop="20dp"
             android:ems="10"
             android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView9"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/textView9"

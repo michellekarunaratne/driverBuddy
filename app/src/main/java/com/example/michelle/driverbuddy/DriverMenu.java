@@ -59,6 +59,17 @@ public class DriverMenu extends AppCompatActivity implements NavigationView.OnNa
                 startActivity(newActivity);
                 break;
 
+            case R.id.nav_setting:
+                Intent driverEditActivity= new Intent(DriverMenu.this,DriverProfileEditActivity.class);
+                startActivity(driverEditActivity);
+                break;
+
+            case R.id.nav_logout:
+                Intent logOutActivity=new Intent(DriverMenu.this,Logging.class);
+                startActivity(logOutActivity);
+                finish();
+                break;
+
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);

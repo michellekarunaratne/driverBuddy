@@ -27,6 +27,13 @@
             android:label="Payment Details">
 
         </activity>
+        <activity
+            android:name=".DriverProfileEditActivity"
+            android:parentActivityName=".DriverMenu" />
+        <activity
+            android:name=".FineHistory"
+            android:parentActivityName=".DriverMenu" />
+        <activity android:name=".Payment" />
         <activity android:name=".PoliceOfficerMenu" />
         <activity
             android:name=".WriteFine"
@@ -56,6 +63,8 @@
             >
 
         </activity>
+            android:label="@string/settings" />
+        <activity android:name=".UpdateFine" />
         <activity android:name=".insurance_profile" />
         <activity android:name=".insurance_edit_profile"
             android:label="Edit Profile"/>
@@ -67,6 +76,15 @@
             android:theme="@style/AppTheme.CustomTheme">
         </activity>
 
+        <activity android:name=".insurance_edit_profile" />
+        <activity android:name=".User_registration" />
+        <activity android:name=".insurance_track_driver" />
+        <activity
+            android:name=".insurance_popwindow"
+            android:theme="@style/AppTheme.CustomTheme"></activity>
+        <activity
+            android:name=".SettingUpProfileActivity"
+            android:parentActivityName=".User_registration"></activity>
     </application>
 
 </manifest>

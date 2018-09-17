@@ -63,5 +63,8 @@
     <string name="user_id">User Id</string>
     <string name="confirm">Confirm</string>
     <string name="string_string_done">Done</string>
+    <string name="fine_history">Fine Histroy</string>
+    <string name="account">Account</string>
+    <string name="profile">Profile</string>
 
 </resources>

@@ -6,25 +6,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class Insurance_registration extends AppCompatActivity {
+public class User_registration extends AppCompatActivity {
 
     public Button but1;
 
     public void init()
-    {      but1 = (Button)findViewById(R.id.button3);
+    {      but1 = (Button) findViewById(R.id.userRegistrationButton);
            but1.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
-                   Intent b= new Intent(Insurance_registration.this,Logging.class);
-                   startActivity(b);
+                   Intent settingUpProfile= new Intent(User_registration.this,SettingUpProfileActivity.class);
+                   startActivity(settingUpProfile);
                }
            });
-
-
-
-
-
-
     }
 
 
@@ -33,7 +27,7 @@ public class Insurance_registration extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_insurance_registration);
+        setContentView(R.layout.activity_user_registration);
         init();
     }
 }

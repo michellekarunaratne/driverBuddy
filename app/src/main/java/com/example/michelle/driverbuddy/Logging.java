@@ -36,6 +36,7 @@ public class Logging extends AppCompatActivity {
                 }
 
 
+
             }
         });
     }
@@ -50,7 +51,7 @@ public class Logging extends AppCompatActivity {
 
 
 
-                    Intent nextActivity1 = new Intent(Logging.this, Insurance_registration.class);
+                    Intent nextActivity1 = new Intent(Logging.this, User_registration.class);
                     startActivity(nextActivity1);
 
 

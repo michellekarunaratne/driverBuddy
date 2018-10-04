@@ -8,7 +8,7 @@
 
     <ListView
         android:layout_width="0dp"
-        android:layout_height="347dp"
+        android:layout_height="464dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
@@ -24,8 +24,8 @@
 
     <Button
         android:id="@+id/button_track_distress_driver"
-        android:layout_width="257dp"
-        android:layout_height="wrap_content"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
         android:layout_marginBottom="44dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
@@ -33,9 +33,9 @@
         android:layout_marginStart="8dp"
         android:background="@drawable/issue_fine_round_button"
         android:text="Track Distress Driver"
+        android:textAppearance="@style/TextAppearance.AppCompat"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textAppearance="@style/TextAppearance.AppCompat"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

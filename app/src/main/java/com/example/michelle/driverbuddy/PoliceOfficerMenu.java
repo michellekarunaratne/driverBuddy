@@ -44,23 +44,33 @@ public class PoliceOfficerMenu extends AppCompatActivity {
                     case R.id.nav_fine_history:
                         Intent fine = new Intent(PoliceOfficerMenu.this,FineHistoryOfficer.class);
                         startActivity(fine);
-                        /*item.setChecked(true);*/
+                        //item.setChecked(true);
                         officer_drawer.closeDrawers();
                         break;
 
                     case R.id.nav_edit_fine:
                         Intent edit = new Intent(PoliceOfficerMenu.this,EditFineOfficer.class);
                         startActivity(edit);
-                        /*item.setChecked(true);*/
+                        //item.setChecked(true);
                         officer_drawer.closeDrawers();
                         break;
 
                     case R.id.nav_settings:
                         Intent settings = new  Intent(PoliceOfficerMenu.this,OfficerSettings.class);
                         startActivity(settings);
-                        /*item.setChecked(true);*/
+                        //item.setChecked(true);
                         officer_drawer.closeDrawers();
                         break;
+
+                    case R.id.nav_log_out:
+                        Intent log_out = new  Intent(PoliceOfficerMenu.this,Logging.class);
+                        startActivity(log_out);
+                        //item.setChecked(true);
+                        officer_drawer.closeDrawers();
+                        finish();
+                        break;
+
+
                 }
 
                 return false;

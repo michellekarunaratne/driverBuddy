@@ -17,27 +17,17 @@ public class DriverMenu extends AppCompatActivity implements NavigationView.OnNa
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
 
-    public Button payfine_bttn;
+    public Button pay_fine,report_accident,distress_button;
 
-    public void setPayfine_bttn()
-    {
-        payfine_bttn=(Button)findViewById(R.id.payfine_bttn);
-        payfine_bttn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent nextActivity= new Intent(DriverMenu.this,Payment.class);
-                startActivity(nextActivity);
-            }
-        });
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver_menu);
-        setPayfine_bttn();
+        report_accident_button();
+        distress_button();
+        pay_fine_button();
 
         drawerLayout=(DrawerLayout)findViewById(R.id.drawer_layout);
         NavigationView navigationView =findViewById(R.id.nav_view);
@@ -86,4 +76,48 @@ public class DriverMenu extends AppCompatActivity implements NavigationView.OnNa
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void report_accident_button()
+    {
+        report_accident=(Button)findViewById(R.id.report_accident);
+        report_accident.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent nextActivity;
+                nextActivity = new Intent(DriverMenu.this,DriverReportAccident.class);
+                startActivity(nextActivity);
+            }
+        });
+    }
+
+    public void distress_button()
+    {
+        distress_button=(Button)findViewById(R.id.distress_button);
+        distress_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent nextActivity;
+                nextActivity = new Intent(DriverMenu.this,DistressButton.class);
+                startActivity(nextActivity);
+            }
+        });
+    }
+
+    public void pay_fine_button()
+    {
+        pay_fine=(Button)findViewById(R.id.pay_fine);
+        pay_fine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent nextActivity;
+                nextActivity = new Intent(DriverMenu.this,DriverFineDetails.class);
+                startActivity(nextActivity);
+            }
+        });
+    }
+
+
 }

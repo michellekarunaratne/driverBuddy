@@ -32,7 +32,7 @@ public class PoliceOfficerMenu extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         write_fine_button();
-        check_license_button();
+        //check_license_button();
         distress_respond_button();
 
         navigationView = findViewById(R.id.navigation_view);
@@ -92,9 +92,9 @@ public class PoliceOfficerMenu extends AppCompatActivity {
         });
     }
 
-    public void check_license_button()
+    /*public void check_license_button()
     {
-        button_check_license=(Button)findViewById(R.id.button_check_license);
+        //button_check_license=(Button)findViewById(R.id.button_check_license);
         button_check_license.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -104,7 +104,7 @@ public class PoliceOfficerMenu extends AppCompatActivity {
                 startActivity(nextActivity);
             }
         });
-    }
+    }*/
 
     public void distress_respond_button()
     {

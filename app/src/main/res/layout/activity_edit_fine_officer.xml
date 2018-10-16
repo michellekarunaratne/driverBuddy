@@ -31,12 +31,12 @@
         android:id="@+id/update_fine_button"
         android:layout_width="170dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/issue_fine_round_button"
         android:text="Update Fine"
         android:textAppearance="@style/TextAppearance.AppCompat"
@@ -46,7 +46,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.851"
         app:layout_constraintStart_toEndOf="@+id/button8"
-        app:layout_constraintTop_toBottomOf="@+id/_dynamic"
         app:layout_constraintVertical_bias="1.0"
         tools:ignore="UnknownId" />
 
@@ -68,7 +67,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/update_fine_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/_dynamic"
         app:layout_constraintVertical_bias="0.666"
         tools:ignore="UnknownId" />
 

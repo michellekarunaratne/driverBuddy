@@ -9,7 +9,7 @@
                 android:checkableBehavior="single">
 
                 <item
-                    android:id="@+id/acc_histroy"
+                    android:id="@+id/acc_history"
                     android:icon="@mipmap/fine_history"
                     android:title="Accident Report History" />
 

@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.michelle.driverbuddy"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0">
 
-    <uses-sdk
-        android:minSdkVersion="15"
-        android:targetSdkVersion="27" />
+    /*uses-sdk
+    android:minSdkVersion="15"
+    android:targetSdkVersion="27" */
 
     <application
         android:allowBackup="true"
@@ -18,89 +18,88 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="HardcodedDebugMode">
-
-        <activity android:name="com.example.michelle.driverbuddy.Logging" >
+        <activity android:name=".Logging">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.example.michelle.driverbuddy.DriverMenu" />
-
+        <activity android:name=".DriverMenu" />
         <activity
-            android:name="com.example.michelle.driverbuddy.DriverProfileEditActivity"
-            android:parentActivityName="com.example.michelle.driverbuddy.DriverMenu"
-            android:label="@string/edit_profile"/>
-
+            android:name=".DriverProfileEditActivity"
+            android:label="@string/edit_profile"
+            android:parentActivityName=".DriverMenu" />
         <activity
-            android:name="com.example.michelle.driverbuddy.FineHistory"
-            android:parentActivityName="com.example.michelle.driverbuddy.DriverMenu"
-            android:label="@string/fine_history_1"/>
-
-        <activity android:name="com.example.michelle.driverbuddy.Payment"
-            android:label="Payment Details"/>
-
-        <activity android:name="com.example.michelle.driverbuddy.PoliceOfficerMenu" />
-
+            android:name=".FineHistory"
+            android:label="@string/fine_history_1"
+            android:parentActivityName=".DriverMenu" />
         <activity
-            android:name="com.example.michelle.driverbuddy.WriteFine"
+            android:name=".Payment"
+            android:label="Payment Details" />
+        <activity android:name=".PoliceOfficerMenu" />
+        <activity
+            android:name=".WriteFine"
             android:label="@string/issue_fine_1" />
-
         <activity
-            android:name="com.example.michelle.driverbuddy.CheckLicense"
+            android:name=".CheckLicense"
             android:label="@string/check_license" />
-
         <activity
-            android:name="com.example.michelle.driverbuddy.RespondDistress"
+            android:name=".RespondDistress"
             android:label="@string/distress_respond" />
-
         <activity
-            android:name="com.example.michelle.driverbuddy.TrackDistressDriver"
+            android:name=".TrackDistressDriver"
             android:label="@string/track_driver" />
-
         <activity
-            android:name="com.example.michelle.driverbuddy.EditFineOfficer"
+            android:name=".EditFineOfficer"
             android:label="@string/edit_fine" />
-
         <activity
-            android:name="com.example.michelle.driverbuddy.FineHistoryOfficer"
+            android:name=".FineHistoryOfficer"
             android:label="@string/fine_history_1" />
-
         <activity
-            android:name="com.example.michelle.driverbuddy.OfficerSettings"
+            android:name=".OfficerSettings"
             android:label="Edit Profile" />
-
-
-        <activity android:name="com.example.michelle.driverbuddy.UpdateFine"
-            android:label="@string/update"/>
-
-        <activity android:name="com.example.michelle.driverbuddy.insurance_profile" />
-
         <activity
-            android:name="com.example.michelle.driverbuddy.insurance_track_driver"
+            android:name=".UpdateFine"
+            android:label="@string/update" />
+        <activity android:name=".insurance_profile" />
+        <activity
+            android:name=".insurance_track_driver"
             android:label="Track Driver" />
-
         <activity
-            android:name="com.example.michelle.driverbuddy.insurance_popwindow"
+            android:name=".insurance_popwindow"
             android:theme="@style/AppTheme.CustomTheme" />
-
-        <activity android:name="com.example.michelle.driverbuddy.insurance_edit_profile"
-            android:label="@string/edit_profile"/>
-
         <activity
-            android:name="com.example.michelle.driverbuddy.User_registration"
+            android:name=".insurance_edit_profile"
+            android:label="@string/edit_profile" />
+        <activity
+            android:name=".User_registration"
             android:label="User Registration" />
         <activity
-            android:name="com.example.michelle.driverbuddy.insurance_popwindow"
+            android:name=".insurance_popwindow"
             android:theme="@style/AppTheme.CustomTheme"
             tools:ignore="DuplicateActivity" />
-
         <activity
-            android:name="com.example.michelle.driverbuddy.SettingUpProfileActivity"
-            android:parentActivityName="com.example.michelle.driverbuddy.User_registration"
-            android:label="User Setting Up Profile"/>
+            android:name=".SettingUpProfileActivity"
+            android:label="User Setting Up Profile"
+            android:parentActivityName=".User_registration" />
+        <activity
+            android:name=".DriverReportAccident"
+            android:label="Report Accident" />
+        <activity
+            android:name=".DistressButton"
+            android:label="Notify Distress" />
+        <activity
+            android:name=".InsuranceAccidentHistory"
+            android:label="Accident History" />
+        <activity
+            android:name=".AccidentPictures"
+            android:label="Accident Pictures" />
+
+        <activity android:name=".DriverFineDetails"
+            android:label="Fine Details">
+
+        </activity>
     </application>
 
 </manifest>

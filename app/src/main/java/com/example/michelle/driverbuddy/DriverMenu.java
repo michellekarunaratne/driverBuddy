@@ -1,6 +1,9 @@
 package com.example.michelle.driverbuddy;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.PersistableBundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -11,11 +14,21 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DriverMenu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
+    TextView name,email,license;
 
     public Button payfine_bttn;
 
@@ -38,6 +51,16 @@ public class DriverMenu extends AppCompatActivity implements NavigationView.OnNa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver_menu);
         setPayfine_bttn();
+
+
+        name=findViewById(R.id.driverProfileName);
+        email=findViewById(R.id.driverProfileEmail);
+        license=findViewById(R.id.driverProfileLicense);
+
+        SharedPreferences preferences = getSharedPreferences("driverDetails",MODE_PRIVATE);
+        name.setText(preferences.getString("Name","N/A"));
+        email.setText(preferences.getString("Email","N/A"));
+        license.setText(preferences.getString("License","N/A"));
 
         drawerLayout=(DrawerLayout)findViewById(R.id.drawer_layout);
         NavigationView navigationView =findViewById(R.id.nav_view);
@@ -86,4 +109,7 @@ public class DriverMenu extends AppCompatActivity implements NavigationView.OnNa
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+
 }

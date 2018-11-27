@@ -2,6 +2,7 @@ package com.example.michelle.driverbuddy;
 
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class PoliceOfficerMenu extends AppCompatActivity {
 
@@ -19,6 +21,7 @@ public class PoliceOfficerMenu extends AppCompatActivity {
     public Button button_write_fine, button_check_license, button_distress_respond;
     NavigationView navigationView;
     android.support.v4.app.FragmentTransaction fragmentTransaction;
+    TextView name,officeId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +78,13 @@ public class PoliceOfficerMenu extends AppCompatActivity {
                 return false;
             }
         });
+
+        name=findViewById(R.id.policeMenuName);
+        officeId=findViewById(R.id.policeMenuOfficerId);
+
+        SharedPreferences preferences = getSharedPreferences("policeDetails",MODE_PRIVATE);
+        name.setText(preferences.getString("Name","N/A"));
+        officeId.setText(preferences.getString("PoliceId","N/A"));
     }
 
     public void write_fine_button()

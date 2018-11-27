@@ -7,49 +7,44 @@
 
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/textViewOffense"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_weight="20.0"
+        android:layout_height="50dp"
+        android:layout_weight="25"
         android:gravity="center"
         android:text="Offense"
+        android:textColor="#000000"
         android:textAlignment="center" />
 
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewAmount"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_weight="20.0"
+        android:layout_height="50dp"
+        android:layout_weight="25"
         android:gravity="center"
         android:text="Amount"
+        android:textColor="#000000"
         android:textAlignment="center" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textViewOfficer"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_weight="20.0"
+        android:layout_height="50dp"
+        android:layout_weight="25"
         android:gravity="center"
         android:text="Officer"
+        android:textColor="#000000"
         android:textAlignment="center" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textViewTimestamp"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_weight="20.0"
-        android:gravity="center"
-        android:text="Date"
-        android:textAlignment="center" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_weight="20.0"
+        android:layout_height="50dp"
+        android:layout_weight="25"
         android:gravity="center"
         android:text="TimeStamp"
+        android:textColor="#000000"
         android:textAlignment="center" />
 
 

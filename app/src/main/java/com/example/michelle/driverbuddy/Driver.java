@@ -1,6 +1,6 @@
 package com.example.michelle.driverbuddy;
 
-public class User {
+public class Driver {
 
     String nic;
     String firstName;
@@ -9,7 +9,7 @@ public class User {
     String email;
     int license;
 
-    public User(String firstName, String lastName,String email,String nic, int license,int mobile) {
+    public Driver(String firstName, String lastName, String email, String nic, int license, int mobile) {
         this.nic = nic;
         this.firstName = firstName;
         this.lastName = lastName;

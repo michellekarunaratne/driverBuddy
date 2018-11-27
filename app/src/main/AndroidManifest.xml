@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.michelle.driverbuddy">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -17,23 +20,18 @@
             </intent-filter>
         </activity>
         <activity android:name=".DriverMenu" />
-        <activity android:name=".DriverEditProfile"
-            android:label="Edit Profile"/>
+        <activity android:name=".DriverProfileEditActivity"
+            android:label="Edit Profile"
+            android:parentActivityName=".DriverMenu"/>
 
         <activity android:name=".FineHistory"
-            android:label="@string/fine_history_1"/>
+            android:label="@string/fine_history_1"
+            android:parentActivityName=".DriverMenu" />
 
         <activity android:name=".Payment"
             android:label="Payment Details">
-
         </activity>
-        <activity
-            android:name=".DriverProfileEditActivity"
-            android:parentActivityName=".DriverMenu" />
-        <activity
-            android:name=".FineHistory"
-            android:parentActivityName=".DriverMenu" />
-        <activity android:name=".Payment" />
+
         <activity android:name=".PoliceOfficerMenu" />
         <activity
             android:name=".WriteFine"
@@ -55,20 +53,19 @@
             android:label="@string/fine_history_1" />
         <activity
             android:name=".OfficerSettings"
-            android:label="@string/settings">
-
+            android:label="@string/settings"
+            android:parentActivityName=".PoliceOfficerMenu">
         </activity>
         <activity android:name=".UpdateFine"
-            android:label="@string/update"
-            >
-
+            android:label="@string/update">
         </activity>
+
             android:label="@string/settings" />
-        <activity android:name=".UpdateFine" />
         <activity android:name=".insurance_profile" />
         <activity android:name=".insurance_edit_profile"
-            android:label="Edit Profile"/>
-        <activity android:name=".Insurance_registration"
+            android:label="Edit Profile"
+            android:parentActivityName=".insurance_profile"/>
+        <activity android:name=".DriverRegistration"
             android:label="Registration"/>
         <activity android:name=".insurance_track_driver"
             android:label="Track Driver"/>
@@ -76,15 +73,9 @@
             android:theme="@style/AppTheme.CustomTheme">
         </activity>
 
-        <activity android:name=".insurance_edit_profile" />
-        <activity android:name=".User_registration" />
-        <activity android:name=".insurance_track_driver" />
-        <activity
-            android:name=".insurance_popwindow"
-            android:theme="@style/AppTheme.CustomTheme"></activity>
         <activity
             android:name=".SettingUpProfileActivity"
-            android:parentActivityName=".User_registration"></activity>
+            android:parentActivityName=".DriverRegistration"></activity>
     </application>
 
 </manifest>

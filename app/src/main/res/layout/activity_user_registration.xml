@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".User_registration">
+    tools:context=".DriverRegistration">
 
     <TextView
         android:id="@+id/textView18"
@@ -19,7 +19,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
 
-        app:layout_constraintEnd_toStartOf="@+id/editText3"
+        app:layout_constraintEnd_toStartOf="@+id/registrationFirstName"
         app:layout_constraintHorizontal_bias="0.181"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView29" />
@@ -33,10 +33,10 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="76dp"
-        android:text="@string/first_name"
+        android:text="First Name"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/editText3"
+        app:layout_constraintEnd_toStartOf="@+id/registrationFirstName"
 
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +55,7 @@
         android:text="Email"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/editText4"
+        app:layout_constraintEnd_toStartOf="@+id/registrationLastName"
         app:layout_constraintHorizontal_bias="0.093"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
@@ -69,29 +69,29 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="30dp"
-        android:text="@string/nic"
+        android:text="NIC"
         android:textColor="@color/colorPrimaryDark"
 
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/editText5"
+        app:layout_constraintEnd_toStartOf="@+id/driverprofileEditMobile"
         app:layout_constraintHorizontal_bias="0.079"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/registrationFirstName"
         android:layout_width="249dp"
         android:layout_height="39dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="76dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/registrationLastName"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -104,10 +104,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView18"
-        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+        app:layout_constraintTop_toBottomOf="@+id/registrationFirstName" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/driverprofileEditMobile"
         android:layout_width="249dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -116,10 +116,10 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText8" />
+        app:layout_constraintTop_toBottomOf="@+id/driverProfileEditLicense" />
 
     <EditText
-        android:id="@+id/editText11"
+        android:id="@+id/registrationMobile"
         android:layout_width="249dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -128,10 +128,10 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5" />
+        app:layout_constraintTop_toBottomOf="@+id/driverprofileEditMobile" />
 
     <EditText
-        android:id="@+id/editText24"
+        android:id="@+id/registrationLicense"
         android:layout_width="249dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -140,10 +140,10 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5" />
+        app:layout_constraintTop_toBottomOf="@+id/driverprofileEditMobile" />
 
     <EditText
-        android:id="@+id/editText8"
+        android:id="@+id/driverProfileEditLicense"
         android:layout_width="248dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -156,7 +156,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+        app:layout_constraintTop_toBottomOf="@+id/registrationLastName" />
 
     <TextView
         android:id="@+id/textView32"
@@ -170,7 +170,7 @@
         android:text="License"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/editText11"
+        app:layout_constraintEnd_toStartOf="@+id/registrationMobile"
         app:layout_constraintHorizontal_bias="0.105"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
@@ -202,7 +202,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText11" />
+        app:layout_constraintTop_toBottomOf="@+id/registrationMobile"/>
 
     <TextView
         android:id="@+id/textView40"
@@ -211,7 +211,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:text="@string/mobile"
+        android:text="Mobile"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"

@@ -2,6 +2,7 @@ package com.example.michelle.driverbuddy;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -17,6 +18,7 @@ public class insurance_profile extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
+    TextView name,agentId,email;
 
     public Button but2,but3;
     public TextView edit;
@@ -44,6 +46,7 @@ public class insurance_profile extends AppCompatActivity {
 
 
 
+
     }
 
 
@@ -52,6 +55,15 @@ public class insurance_profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insurance_profile);
+
+        name=findViewById(R.id.insuranceProfileName);
+        agentId=findViewById(R.id.insuranceProfileAgentId);
+        email=findViewById(R.id.insuranceProfileEmail);
+
+        SharedPreferences preferences = getSharedPreferences("insuranceDetails",MODE_PRIVATE);
+        name.setText(preferences.getString("Name","N/A"));
+        email.setText(preferences.getString("Email","N/A"));
+        agentId.setText(preferences.getString("AgentId","N/A"));
 
         init();
 
@@ -83,6 +95,8 @@ public class insurance_profile extends AppCompatActivity {
                 return true;
             }
         });
+
+
 
     }
     @Override

@@ -34,7 +34,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewAmount"
         android:layout_width="214dp"
         android:layout_height="31dp"
         android:layout_alignLeft="@+id/textView"

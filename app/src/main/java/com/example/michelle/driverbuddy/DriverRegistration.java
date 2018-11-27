@@ -13,9 +13,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.Body;
 
-public class User_registration extends AppCompatActivity {
+public class DriverRegistration extends AppCompatActivity {
 
     public Button but1;
     public Button createAccountButton;
@@ -26,8 +25,8 @@ public class User_registration extends AppCompatActivity {
 
             final EditText firstName = (EditText) findViewById(R.id.registrationFirstName);
             final EditText lastName = (EditText) findViewById(R.id.registrationLastName);
-            final EditText email = (EditText) findViewById(R.id.registrationEmail);
-            final EditText nic = (EditText) findViewById(R.id.registrationNic);
+            final EditText email = (EditText) findViewById(R.id.driverProfileEditLicense);
+            final EditText nic = (EditText) findViewById(R.id.driverprofileEditMobile);
             final EditText license = (EditText) findViewById(R.id.registrationLicense);
             final EditText mobile = (EditText) findViewById(R.id.registrationMobile);
 
@@ -35,7 +34,7 @@ public class User_registration extends AppCompatActivity {
                @Override
                public void onClick(View v) {
 
-                   User user=new User(
+                   Driver driver =new Driver(
 
                            firstName.getText().toString(),
                            lastName.getText().toString(),
@@ -46,7 +45,7 @@ public class User_registration extends AppCompatActivity {
 
 
 
-                   sendNetworkRequest(user);
+                   sendNetworkRequest(driver);
                }
            });
     }
@@ -61,7 +60,7 @@ public class User_registration extends AppCompatActivity {
         init();
     }
 
-    public void sendNetworkRequest(User user)
+    public void sendNetworkRequest(Driver driver)
     {
         Retrofit.Builder builder=new Retrofit.Builder()
                 .baseUrl("http://10.0.2.2:3000/")
@@ -70,25 +69,25 @@ public class User_registration extends AppCompatActivity {
 
         Retrofit retrofit=builder.build();
 
-        Api userRegistration=retrofit.create(Api.class);
-        Call<User> call=userRegistration.createAccount(user);
+        Api driverRegistration=retrofit.create(Api.class);
+        Call<Driver> call=driverRegistration.createAccount(driver);
 
 
-        call.enqueue(new Callback<User>() {
+        call.enqueue(new Callback<Driver>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
+            public void onResponse(Call<Driver> call, Response<Driver> response) {
 
-                EditText userId=(EditText) findViewById(R.id.registrationNic);
-                Toast.makeText(User_registration.this,"Yeah User nic"+response.body().getNic(),Toast.LENGTH_SHORT).show();
-                Intent settingUpProfile= new Intent(User_registration.this,SettingUpProfileActivity.class);
+                EditText userId=(EditText) findViewById(R.id.driverprofileEditMobile);
+                Toast.makeText(DriverRegistration.this,"Yeah Driver nic"+response.body().getNic(),Toast.LENGTH_SHORT).show();
+                Intent settingUpProfile= new Intent(DriverRegistration.this,SettingUpProfileActivity.class);
                 settingUpProfile.putExtra("USER ID",userId.getText().toString());
                 startActivity(settingUpProfile);
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(User_registration.this,"Something Went Wrong"+t,Toast.LENGTH_SHORT).show();
-                Intent logging= new Intent(User_registration.this,Logging.class);
+            public void onFailure(Call<Driver> call, Throwable t) {
+                Toast.makeText(DriverRegistration.this,"Something Went Wrong"+t,Toast.LENGTH_SHORT).show();
+                Intent logging= new Intent(DriverRegistration.this,Logging.class);
                 startActivity(logging);
             }
         });

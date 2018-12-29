@@ -32,14 +32,19 @@ public class Logging extends AppCompatActivity {
                 //Toast.makeText(Logging.this,"THis works",Toast.LENGTH_SHORT).show();
                 final EditText username = (EditText)findViewById(R.id.editText);
                 final EditText password = (EditText)findViewById(R.id.editText2);
+                String userNameText=username.getText().toString().toLowerCase();
+                if(userNameText.length()!=10||!userNameText.contains("v"))
+                {
+                    username.setError("Invalid User ID");
+                }
+                else {
+                    User user = new User(
 
-                User user=new User(
+                            username.getText().toString(),
+                            password.getText().toString()
+                    );
 
-                        username.getText().toString(),
-                        password.getText().toString()
-                );
-
-                sendNetworkRequestForType(user);
+                    sendNetworkRequestForType(user);
                 /*if(username.getText().toString().trim().equals("insurance") && password.getText().toString().equals("abc")) {
                     Intent nextActivity = new Intent(Logging.this, insurance_profile.class);
                     startActivity(nextActivity);
@@ -54,7 +59,7 @@ public class Logging extends AppCompatActivity {
                     startActivity(nextActivity1);
                 }*/
 
-
+                }
 
             }
         });

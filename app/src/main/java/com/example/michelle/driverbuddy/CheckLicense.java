@@ -33,14 +33,18 @@ public class CheckLicense extends AppCompatActivity {
         checkLicenseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String license=checkLicense.getText().toString().trim();
-                sendNetworkRequest(license);
+                if(license.length()==0)
+                    checkLicense.setError("License Number Cannot Be Empty");
+                else
+                    sendNetworkRequest(license);
             }
         });
 
     }
 
-    public void sendNetworkRequest(String license)
+    public void sendNetworkRequest(final String license)
     {
         Retrofit.Builder builder=new Retrofit.Builder()
                 .baseUrl("http://10.0.2.2:3000/")
@@ -49,7 +53,7 @@ public class CheckLicense extends AppCompatActivity {
 
         Retrofit retrofit=builder.build();
 
-        Api checkLicense=retrofit.create(Api.class);
+        final Api checkLicense=retrofit.create(Api.class);
         Call<Driver>call=checkLicense.checkLicense(license);
         call.enqueue(new Callback<Driver>() {
             @Override

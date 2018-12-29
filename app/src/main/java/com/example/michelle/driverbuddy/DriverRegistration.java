@@ -3,6 +3,7 @@ package com.example.michelle.driverbuddy;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +20,7 @@ public class DriverRegistration extends AppCompatActivity {
     public Button but1;
     public Button createAccountButton;
 
+
     public void init()
     {
             but1 = (Button) findViewById(R.id.userRegistrationButton);
@@ -30,22 +32,71 @@ public class DriverRegistration extends AppCompatActivity {
             final EditText license = (EditText) findViewById(R.id.registrationLicense);
             final EditText mobile = (EditText) findViewById(R.id.registrationMobile);
 
+
             but1.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
 
-                   Driver driver =new Driver(
+                   String emailText=email.getText().toString();
+                   String nicText=nic.getText().toString().toLowerCase();
+                   boolean next=true;
 
-                           firstName.getText().toString(),
-                           lastName.getText().toString(),
-                           email.getText().toString(),
-                           nic.getText().toString(),
-                           Integer.parseInt(license.getText().toString()),
-                           Integer.parseInt(mobile.getText().toString()));
+                   if(firstName.getText().length()==0)
+                   {
+                       firstName.setError("First Name Should Not Be Empty");
+                       next=false;
+                   }
+                   if (lastName.getText().length()==0)
+                   {
+                       lastName.setError("Last Name Should Not Be Empty");
+                       next=false;
+                   }
+                   if(!emailText.contains("@"))
+                   {
+                       email.setError("Email Should Contain @");
+                       next=false;
+                   }
+                   if(nicText.length()!=10)
+                   {
+                       nic.setError("NIC Is Invalid");
+                       next=false;
+                   }
+                   if (!nicText.contains("v"))
+                   {
+                       nic.setError("NIC Should Contain V");
+                       next=false;
+                   }
+                   if(mobile.getText().length()!=10)
+                   {
+                       mobile.setError("Mobile Number Is Invalid");
+                       next=false;
+                   }
+                   if (!TextUtils.isDigitsOnly(mobile.getText()))
+                   {
+                       mobile.setError("Mobile Should Only Cotain Digits");
+                       next=false;
+                   }
+                   if(license.getText().length()==0)
+                   {
+                       license.setError("License Should Not Be Empty");
+                       next=false;
+
+                   }
+                   if(next)
+                   {
+                       Driver driver =new Driver(
+
+                               firstName.getText().toString(),
+                               lastName.getText().toString(),
+                               email.getText().toString(),
+                               nic.getText().toString(),
+                               Integer.parseInt(license.getText().toString()),
+                               Integer.parseInt(mobile.getText().toString())
+                       );
+                       sendNetworkRequest(driver);
+                   }
 
 
-
-                   sendNetworkRequest(driver);
                }
            });
     }

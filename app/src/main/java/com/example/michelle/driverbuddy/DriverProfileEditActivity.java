@@ -3,6 +3,7 @@ package com.example.michelle.driverbuddy;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,29 +38,58 @@ public class DriverProfileEditActivity extends AppCompatActivity {
         license.setText(preferences.getString("License", "N/A"));
         mobile.setText(String.valueOf(preferences.getInt("Mobile", 0)));
 
-
-
         driverProfileEditButton = (Button) findViewById(R.id.driverProfileEditButton);
         driverProfileEditButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                SharedPreferences preferences = getSharedPreferences("driverDetails", MODE_PRIVATE);
-                String[] nameArray = name.getText().toString().split(" ");
-                String nic = preferences.getString("Nic", "N/A");
+                boolean next=true;
+
+                if(name.getText().length()==0)
+                {
+                    name.setError("Name Should Not Be Empty");
+                    next=false;
+                }
+                if(email.getText().length()==0 || !email.getText().toString().contains("@"))
+                {
+                    if(email.getText().length()==0 )
+                        email.setError("Email Should Not Be Empty");
+                    else
+                        email.setError("Email Should Contain @");
+
+                    next=false;
+                }
+                if(license.getText().length()==0)
+                {
+                    license.setError("License Should Not Be Empty");
+                    next=false;
+                }
+                if(mobile.getText().length()!=10||!TextUtils.isDigitsOnly(mobile.getText()))
+                {
+                    if(mobile.getText().length()!=10)
+                        mobile.setError("Invalid Mobile");
+                    else
+                        mobile.setError("Mobile Should Only Contain Digits");
+                    next=false;
+                }
+                if(next) {
+                    SharedPreferences preferences = getSharedPreferences("driverDetails", MODE_PRIVATE);
+                    String[] nameArray = name.getText().toString().split(" ");
+                    String nic = preferences.getString("Nic", "N/A");
 
 
-                Driver driver = new Driver(
+                    Driver driver = new Driver(
 
-                        nameArray[0],
-                        nameArray[1],
-                        email.getText().toString(),
-                        nic,
-                        Integer.parseInt(license.getText().toString()),
-                        Integer.parseInt(mobile.getText().toString())
-                );
+                            nameArray[0],
+                            nameArray[1],
+                            email.getText().toString(),
+                            nic,
+                            Integer.parseInt(license.getText().toString()),
+                            Integer.parseInt(mobile.getText().toString())
+                    );
 
-                sendNetworkRequestForEdit(driver);
+                    sendNetworkRequestForEdit(driver);
+                }
             }
         });
     }

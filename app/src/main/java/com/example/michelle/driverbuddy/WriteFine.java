@@ -25,6 +25,7 @@ public class WriteFine extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     String fineName="";
     Button issueFineButton;
+    int min,max;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,10 @@ public class WriteFine extends AppCompatActivity {
 
         fineNameSpinner =(Spinner) findViewById(R.id.fineNameSpinner);
         issueFineButton =(Button)findViewById(R.id.issueFineButton);
+        final EditText nic=(EditText)findViewById(R.id.fineDriverNic);
+        final EditText vehicleNumber=(EditText) findViewById(R.id.fineDriverVehicleNumber);
+        final EditText amount=(EditText) findViewById(R.id.fineDriverAmount);
+
 
         adapter=new ArrayAdapter<String>(WriteFine.this,
                 android.R.layout.simple_list_item_1,fineNames);
@@ -51,6 +56,8 @@ public class WriteFine extends AppCompatActivity {
                 {
                     case 0:
                         fineName="crossing double lane";
+                        min=500;
+                        max=1000;
                         break;
 
                     case 1:
@@ -80,17 +87,46 @@ public class WriteFine extends AppCompatActivity {
                 final EditText nic=(EditText)findViewById(R.id.fineDriverNic);
                 final EditText vehicleNumber=(EditText) findViewById(R.id.fineDriverVehicleNumber);
                 final EditText amount=(EditText) findViewById(R.id.fineDriverAmount);
-                SharedPreferences preferences = getSharedPreferences("policeDetails",MODE_PRIVATE);
-                String policeId=preferences.getString("PoliceId","N/A").trim();
 
-                FineTicket fineTicket=new FineTicket(
-                        vehicleNumber.getText().toString().trim(),
-                        Integer.parseInt(amount.getText().toString().toString().trim()),
-                        nic.getText().toString().trim(),
-                        policeId,
-                        fineName
-                );
-                sendNetworkRequest(fineTicket);
+                boolean next=true;
+
+                String nicText=nic.getText().toString().toLowerCase();
+                if(amount.getText().length()==0)
+                {
+                    amount.setError("Amount Should Not Be Empty");
+                    next=false;
+                }
+
+
+                if(nicText.length()!=10||!nicText.contains("v"))
+                {
+                    nic.setError("Invalid NIC");
+                    next=false;
+                }
+                if(next)
+                {
+                    int amountInt=Integer.parseInt(amount.getText().toString());
+                    if(amountInt>=min && amountInt<=max)
+                    {
+                        SharedPreferences preferences = getSharedPreferences("policeDetails", MODE_PRIVATE);
+                        String policeId = preferences.getString("PoliceId", "N/A").trim();
+
+
+                        FineTicket fineTicket = new FineTicket(
+                                vehicleNumber.getText().toString().trim(),
+                                Integer.parseInt(amount.getText().toString().toString().trim()),
+                                nic.getText().toString().trim(),
+                                policeId,
+                                fineName
+                        );
+
+                        sendNetworkRequest(fineTicket);
+
+                    }
+                    else {
+                        amount.setError("Fine Amount Is Not In The Allocated Range");
+                    }
+                }
 
 
             }

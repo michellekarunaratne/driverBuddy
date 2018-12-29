@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -57,22 +58,54 @@ public class insurance_edit_profile extends AppCompatActivity {
         mobile.setText(String.valueOf(preferences.getInt("Mobile",0)));
 
         but4=findViewById(R.id.edit_done);
-       but4.setOnClickListener(new View.OnClickListener() {
+        but4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences preferences = getSharedPreferences("insuranceDetails",MODE_PRIVATE);
-                String name[]=preferences.getString("Name","N/A").split(" ");
-                Insurance insurance=new Insurance(
-                        preferences.getString("Nic","N/A"),
-                        firstName.getText().toString(),
-                        lastName.getText().toString(),
-                        Integer.parseInt(mobile.getText().toString()),
-                        email.getText().toString(),
-                        preferences.getString("AgentId","N/A")
 
-                );
+                boolean next=true;
+                String emailText=email.getText().toString();
 
-                sendNetworkRequestForEdit(insurance);
+                if(firstName.getText().length()==0)
+                {
+                    firstName.setError("First Name Should Not Be Empty");
+                    next=false;
+                }
+                if(lastName.getText().length()==0)
+                {
+                    lastName.setError("Last Name Should Not Be Empty");
+                    next=false;
+                }
+                if(emailText.length()==0||!emailText.contains("@"))
+                {
+                    if(emailText.length()==0)
+                        email.setError("Email Should Not Be Empty");
+                    else
+                        email.setError("Email Should Contain @");
+                    next=false;
+                }
+                if(mobile.getText().length()==0|| !TextUtils.isDigitsOnly(mobile.getText()))
+                {
+                    if(mobile.getText().length()==0)
+                        mobile.setError("Mobile Should Not Be Empty");
+                    else
+                        mobile.setError("Mobile Should Only Contain Digits");
+                    next=false;
+                }
+                if(next) {
+                    SharedPreferences preferences = getSharedPreferences("insuranceDetails", MODE_PRIVATE);
+                    String name[] = preferences.getString("Name", "N/A").split(" ");
+                    Insurance insurance = new Insurance(
+                            preferences.getString("Nic", "N/A"),
+                            firstName.getText().toString(),
+                            lastName.getText().toString(),
+                            Integer.parseInt(mobile.getText().toString()),
+                            email.getText().toString(),
+                            preferences.getString("AgentId", "N/A")
+
+                    );
+
+                    sendNetworkRequestForEdit(insurance);
+                }
             }
        });
     }

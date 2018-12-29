@@ -21,6 +21,7 @@ public class SettingUpProfileActivity extends AppCompatActivity {
     TextView userId;
     EditText password;
     String type="Driver";
+    EditText confirmpassword;
 
     public void SignOut()
     {
@@ -45,22 +46,38 @@ public class SettingUpProfileActivity extends AppCompatActivity {
         userId=(TextView) findViewById(R.id.settingUpProfileUserId);
         userId.setText(getIntent().getStringExtra("USER ID"));
 
+
+
+
     }
 
     public void createProfile()
     {
         password=(EditText) findViewById(R.id.settingUpProfilePassword);
+        confirmpassword=(EditText) findViewById(R.id.settingUpProfileConfirmPassword);
+        String passW=password.getText().toString();
+        String confirmP=confirmpassword.getText().toString();
+
+        if(!passW.equals(confirmP))
+            {
+                password.setError("Password Doesn't Match");
+                confirmpassword.setError(("Password Doesn't Match "));
+            }
+        else
+            {
+                password = (EditText) findViewById(R.id.settingUpProfilePassword);
 
 
-        User user=new User(
+                User user = new User(
 
-                userId.getText().toString(),
-                password.getText().toString(),
-                type
+                        userId.getText().toString(),
+                        password.getText().toString(),
+                        type
 
-        );
+                );
 
-        sendNetworkRequest(user);
+                sendNetworkRequest(user);
+            }
 
     }
 

@@ -11,11 +11,7 @@
                 <item
                     android:id="@+id/acc_histroy"
                     android:icon="@mipmap/fine_history"
-                    android:title="Accident report History" />
-
-                <item android:id="@+id/acc_pictures"
-                    android:icon="@drawable/picture_icon"
-                    android:title="Pictures" />
+                    android:title="Enter/View Accident report History" />
 
             </group>
         </menu>

@@ -99,7 +99,9 @@ public class OfficerSettings extends AppCompatActivity {
         Retrofit retrofit=builder.build();
 
         Api editPoliceProfile=retrofit.create(Api.class);
-        Call<Police> call=editPoliceProfile.editPoliceProfile(police);
+        SharedPreferences preferences = getSharedPreferences("policeDetails", MODE_PRIVATE);
+        String token=preferences.getString("Token","Null");
+        Call<Police> call=editPoliceProfile.editPoliceProfile(token,police);
         call.enqueue(new Callback<Police>() {
             @Override
             public void onResponse(Call<Police> call, Response<Police> response) {

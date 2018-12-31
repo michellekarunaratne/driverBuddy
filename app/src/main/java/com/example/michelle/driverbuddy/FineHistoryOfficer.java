@@ -51,7 +51,9 @@ public class FineHistoryOfficer extends AppCompatActivity {
         Retrofit retrofit=builder.build();
 
         Api getTickets=retrofit.create(Api.class);
-        Call<ArrayList<FineTicket>> call=getTickets.getFineTicketPolice(policeId);
+        SharedPreferences preferences = getSharedPreferences("policeDetails",MODE_PRIVATE);
+        String token=preferences.getString("Token","Null");
+        Call<ArrayList<FineTicket>> call=getTickets.getFineTicketPolice(token,policeId);
         call.enqueue(new Callback<ArrayList<FineTicket>>() {
             @Override
             public void onResponse(Call<ArrayList<FineTicket>> call, Response<ArrayList<FineTicket>> response) {

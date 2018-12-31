@@ -58,7 +58,9 @@ public class FineHistory extends AppCompatActivity {
         Retrofit retrofit=builder.build();
 
         Api getTickets=retrofit.create(Api.class);
-        Call<ArrayList<FineTicket>> call=getTickets.getFineTicketDriver(nic);
+        SharedPreferences preferences = getSharedPreferences("driverDetails",MODE_PRIVATE);
+        String token=preferences.getString("Token","Null");
+        Call<ArrayList<FineTicket>> call=getTickets.getFineTicketDriver(token,nic);
         call.enqueue(new Callback<ArrayList<FineTicket>>() {
 
             @Override
@@ -84,8 +86,9 @@ public class FineHistory extends AppCompatActivity {
             String amount=String.valueOf(ticketList.get(i).getAmount());
             String officer=ticketList.get(i).getPolice()[0].getFirstName().charAt(0)+" "+ticketList.get(i).getPolice()[0].getLastName();
             String timestamp=ticketList.get(i).getTimeStamp().toString();
+            int paid=ticketList.get(i).getPaid();
 
-            fineTickets.add(new ViewFineTicket(offense,amount,officer,timestamp));
+            fineTickets.add(new ViewFineTicket(offense,amount,officer,timestamp,paid));
         }
 
         //fineTickets.add(new ViewFineTicket("Crossing Double Line",1000,"Saman Kulathunga","2018/78/78"));

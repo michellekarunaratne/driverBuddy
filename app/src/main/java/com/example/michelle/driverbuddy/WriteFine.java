@@ -144,7 +144,9 @@ public class WriteFine extends AppCompatActivity {
         Retrofit retrofit=builder.build();
 
         Api writeFine=retrofit.create(Api.class);
-        Call<FineTicket>call=writeFine.createFineTicket(fineTicket);
+        SharedPreferences preferences = getSharedPreferences("policeDetails", MODE_PRIVATE);
+        String token=preferences.getString("Token","Null");
+        Call<FineTicket>call=writeFine.createFineTicket(token,fineTicket);
         call.enqueue(new Callback<FineTicket>() {
             @Override
             public void onResponse(Call<FineTicket> call, Response<FineTicket> response) {
@@ -153,7 +155,7 @@ public class WriteFine extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<FineTicket> call, Throwable t) {
-                Toast.makeText(WriteFine.this,"Unsucessfull,Something Went Wrong",Toast.LENGTH_SHORT).show();
+                Toast.makeText(WriteFine.this,"Unsucessfull,Something Went Wrong"+t,Toast.LENGTH_SHORT).show();
             }
         });
     }

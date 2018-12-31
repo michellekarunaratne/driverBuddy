@@ -8,6 +8,7 @@ public class Driver {
     int mobile;
     String email;
     int license;
+    String token;
 
     public Driver(String firstName, String lastName, String email, String nic, int license, int mobile) {
         this.nic = nic;
@@ -16,6 +17,16 @@ public class Driver {
         this.mobile = mobile;
         this.email = email;
         this.license = license;
+    }
+
+    public Driver(String firstName, String lastName, String email, String nic, int license, int mobile,String token) {
+        this.nic = nic;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.mobile = mobile;
+        this.email = email;
+        this.license = license;
+        this.token=token;
     }
 
     public String getNic() {
@@ -42,6 +53,10 @@ public class Driver {
         return license;
     }
 
+    public String getToken() {
+        return token;
+    }
+
     public void setNic(String nic) {
         this.nic = nic;
     }
@@ -64,6 +79,10 @@ public class Driver {
 
     public void setLicense(int license) {
         this.license = license;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }
 

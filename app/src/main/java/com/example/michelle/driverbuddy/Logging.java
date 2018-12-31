@@ -138,6 +138,7 @@ public class Logging extends AppCompatActivity {
                     String email= response.body().getEmail();
                     int mobile= response.body().getMobile();
                     String nic= response.body().getNic();
+                    String token=response.body().getToken();
 
                     SharedPreferences driverPreferences=getSharedPreferences("driverDetails",MODE_PRIVATE);
                     SharedPreferences.Editor editor= driverPreferences.edit();
@@ -146,6 +147,7 @@ public class Logging extends AppCompatActivity {
                     editor.putString("Email",email);
                     editor.putInt("Mobile",mobile);
                     editor.putString("Nic",nic);
+                    editor.putString("Token",token);
                     editor.commit();
                     startActivity(driverMenu);
                     finish();
@@ -175,6 +177,7 @@ public class Logging extends AppCompatActivity {
                     String email= response.body().getEmail();
                     int mobile= response.body().getMobile();
                     String nic= response.body().getNic();
+                    String token=response.body().getToken();
 
                     SharedPreferences policePreferences=getSharedPreferences("policeDetails",MODE_PRIVATE);
                     SharedPreferences.Editor editor= policePreferences.edit();
@@ -183,6 +186,7 @@ public class Logging extends AppCompatActivity {
                     editor.putString("Email",email);
                     editor.putInt("Mobile",mobile);
                     editor.putString("Nic",nic);
+                    editor.putString("Token",token);
                     editor.commit();
 
                     startActivity(policeMenu);
@@ -211,6 +215,7 @@ public class Logging extends AppCompatActivity {
                     String email= response.body().getEmail();
                     int mobile= response.body().getMobile();
                     String nic= response.body().getNic();
+                    String token=response.body().getToken();
 
                     SharedPreferences insurancePreferences=getSharedPreferences("insuranceDetails",MODE_PRIVATE);
                     SharedPreferences.Editor editor= insurancePreferences.edit();
@@ -219,6 +224,7 @@ public class Logging extends AppCompatActivity {
                     editor.putString("Email",email);
                     editor.putInt("Mobile",mobile);
                     editor.putString("Nic",nic);
+                    editor.putString("Token",token);
                     editor.commit();
                     startActivity(insuranceMenu);
                     finish();

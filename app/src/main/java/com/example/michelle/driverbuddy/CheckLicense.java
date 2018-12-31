@@ -1,5 +1,6 @@
 package com.example.michelle.driverbuddy;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -34,9 +35,9 @@ public class CheckLicense extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String license=checkLicense.getText().toString().trim();
-                if(license.length()==0)
-                    checkLicense.setError("License Number Cannot Be Empty");
+                String license=checkLicense.getText().toString().trim().toLowerCase();
+                if(license.length()==0||license.contains("v"))
+                    checkLicense.setError("Invalid License Number");
                 else
                     sendNetworkRequest(license);
             }
@@ -52,9 +53,10 @@ public class CheckLicense extends AppCompatActivity {
 
 
         Retrofit retrofit=builder.build();
-
+        SharedPreferences preferences = getSharedPreferences("policeDetails", MODE_PRIVATE);
+        String token=preferences.getString("Token","Null");
         final Api checkLicense=retrofit.create(Api.class);
-        Call<Driver>call=checkLicense.checkLicense(license);
+        Call<Driver>call=checkLicense.checkLicense(token,license);
         call.enqueue(new Callback<Driver>() {
             @Override
             public void onResponse(Call<Driver> call, Response<Driver> response) {

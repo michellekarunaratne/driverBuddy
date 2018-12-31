@@ -1,8 +1,10 @@
 package com.example.michelle.driverbuddy;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,8 +33,9 @@ public class FineListAdapter extends ArrayAdapter<ViewFineTicket>{
         String amount=getItem(position).getAmount();
         String officer=getItem(position).getOfficer();
         String timestamp=getItem(position).getTimestamp();
+        int paid=getItem(position).getPaid();
 
-        ViewFineTicket viewFineTicket=new ViewFineTicket(offense,amount,officer,timestamp);
+        ViewFineTicket viewFineTicket=new ViewFineTicket(offense,amount,officer,timestamp,paid);
 
         LayoutInflater inflater=LayoutInflater.from(mContext);
         convertView=inflater.inflate(mResource,parent,false);
@@ -46,6 +49,15 @@ public class FineListAdapter extends ArrayAdapter<ViewFineTicket>{
         tvAmount.setText(String.valueOf(amount));
         tvOffense.setText(offense);
         tvTimestamp.setText(timestamp);
+
+        if(paid==1)
+        {
+            convertView.setBackgroundColor(Color.GREEN);
+        }
+        else if(paid==0)
+        {
+            convertView.setBackgroundColor(Color.RED);
+        }
 
         return convertView;
     }

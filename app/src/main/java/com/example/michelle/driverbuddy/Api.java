@@ -8,6 +8,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
@@ -33,24 +34,34 @@ public interface Api {
     @POST("userLogin")
     Call<Insurance> loginInsurance(@Body User user);
 
-    @POST("driverEdit")
-    Call<Driver> editDriverProfile(@Body Driver driver);
+    @POST("/secure-api/driverEdit")
+    Call<Driver> editDriverProfile(@Header("authorization")String token,@Body Driver driver);
 
-    @POST("policeEdit")
-    Call<Police> editPoliceProfile(@Body Police police);
+    @POST("/secure-api/policeEdit")
+    Call<Police> editPoliceProfile(@Header("authorization") String token,@Body Police police);
 
-    @POST("insuranceEdit")
-    Call<Insurance> editInsuranceProfile(@Body Insurance insurance);
+    @POST("/secure-api/insuranceEdit")
+    Call<Insurance> editInsuranceProfile(@Header("authorization") String token,@Body Insurance insurance);
 
-    @POST("createFineTicket")
-    Call<FineTicket> createFineTicket(@ Body FineTicket fineTicket);
+    @POST("/secure-api/createFineTicket")
+    Call<FineTicket> createFineTicket(@Header("authorization")String token,@Body FineTicket fineTicket);
 
-    @GET("checkLicense")
-    Call<Driver>checkLicense(@Query("license") String licenseNumber);
+    @GET("/secure-api/checkLicense")
+    Call<Driver>checkLicense(@Header("authorization")String token,@Query("license") String licenseNumber);
 
-    @GET("getTicketDriver")
-    Call<ArrayList<FineTicket>> getFineTicketDriver(@Query("nic") String nic);
+    @GET("/secure-api/getTicketDriver")
+    Call<ArrayList<FineTicket>> getFineTicketDriver(@Header("authorization") String token,@Query("nic") String nic);
 
-    @GET("getTicketPolice")
-    Call<ArrayList<FineTicket>> getFineTicketPolice(@Query("policeId") String policeId);
+    @GET("/secure-api/getTicketPolice")
+    Call<ArrayList<FineTicket>> getFineTicketPolice(@Header("authorization") String token,@Query("policeId") String policeId);
+
+    @GET("/secure-api/getDriver")
+    Call<Driver> getDriver (@Header("authorization")String token,@Query("nic") String nic);
+
+    @POST("/secure-api/enterAccidentReport")
+    Call<AccidentReport> enterAccidentReport(@Header("authorization") String token,@Body AccidentReport accidentReport);
+
+    @GET("/viewAccidentReport")
+    Call<AccidentReport> viewAccidentReport(@Header("authorization") String token,@Query("nic") String nic,@Query("agentId") String agentId);
+
 }

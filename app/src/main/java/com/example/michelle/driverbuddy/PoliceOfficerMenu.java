@@ -50,14 +50,6 @@ public class PoliceOfficerMenu extends AppCompatActivity {
                         //item.setChecked(true);
                         officer_drawer.closeDrawers();
                         break;
-
-                    case R.id.nav_edit_fine:
-                        Intent edit = new Intent(PoliceOfficerMenu.this,EditFineOfficer.class);
-                        startActivity(edit);
-                        //item.setChecked(true);
-                        officer_drawer.closeDrawers();
-                        break;
-
                     case R.id.nav_settings:
                         Intent settings = new  Intent(PoliceOfficerMenu.this,OfficerSettings.class);
                         startActivity(settings);

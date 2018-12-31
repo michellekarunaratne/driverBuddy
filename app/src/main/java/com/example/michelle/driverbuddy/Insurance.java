@@ -8,6 +8,7 @@ public class Insurance {
     int mobile;
     String email;
     String agentId;
+    String token;
 
     public Insurance(String nic, String firstName, String lastName, int mobile, String email, String agentId) {
         this.nic = nic;
@@ -18,6 +19,16 @@ public class Insurance {
         this.agentId = agentId;
     }
 
+
+    public Insurance(String nic, String firstName, String lastName, int mobile, String email, String agentId,String token) {
+        this.nic = nic;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.mobile = mobile;
+        this.email = email;
+        this.agentId = agentId;
+        this.token=token;
+    }
     public String getNic() {
         return nic;
     }
@@ -64,5 +75,12 @@ public class Insurance {
 
     public void setAgentId(String agentId) {
         this.agentId = agentId;
+    }
+
+    public String getToken() {
+        return token;
+    }
+    public void setToken(String token) {
+        this.token = token;
     }
 }

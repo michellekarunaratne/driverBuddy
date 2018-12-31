@@ -120,7 +120,9 @@ public class insurance_edit_profile extends AppCompatActivity {
         Retrofit retrofit=builder.build();
 
         Api editInsuranceProfile=retrofit.create(Api.class);
-        Call<Insurance> call=editInsuranceProfile.editInsuranceProfile(insurance);
+        SharedPreferences preferences = getSharedPreferences("insuranceDetails", MODE_PRIVATE);
+        String token=preferences.getString("Token","Null");
+        Call<Insurance> call=editInsuranceProfile.editInsuranceProfile(token,insurance);
         call.enqueue(new Callback<Insurance>() {
             @Override
             public void onResponse(Call<Insurance> call, Response<Insurance> response) {

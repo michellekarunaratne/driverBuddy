@@ -8,6 +8,7 @@ public class Police {
     int mobile;
     String email;
     String policeId;
+    String token;
 
     public Police(String nic, String firstName, String lastName, int mobile, String email, String policeId) {
         this.nic = nic;
@@ -16,6 +17,23 @@ public class Police {
         this.mobile = mobile;
         this.email = email;
         this.policeId = policeId;
+    }
+
+    public Police(String nic, String firstName, String lastName, int mobile, String email, String policeId,String token) {
+        this.nic = nic;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.mobile = mobile;
+        this.email = email;
+        this.policeId = policeId;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public String getNic() {

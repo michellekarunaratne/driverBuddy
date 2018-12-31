@@ -20,9 +20,6 @@
             <group
                 android:id="@+id/edit_fine"
                 android:checkableBehavior="single">
-                <item android:id="@+id/nav_edit_fine"
-                    android:title="@string/edit_fine"
-                    android:icon="@mipmap/fine"/>
 
             </group>
         </menu>

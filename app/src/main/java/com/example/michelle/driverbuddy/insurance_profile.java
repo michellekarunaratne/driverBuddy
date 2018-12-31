@@ -89,6 +89,11 @@ public class insurance_profile extends AppCompatActivity {
                     Intent e=new Intent(insurance_profile.this,insurance_edit_profile.class);
                     startActivity(e);
                 }
+                else if(id==R.id.acc_histroy)
+                {
+                    Intent e=new Intent(insurance_profile.this,Insurance_accident_report.class);
+                    startActivity(e);
+                }
 
 
 

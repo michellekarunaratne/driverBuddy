@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.michelle.driverbuddy">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -20,18 +22,17 @@
             </intent-filter>
         </activity>
         <activity android:name=".DriverMenu" />
-        <activity android:name=".DriverProfileEditActivity"
+        <activity
+            android:name=".DriverProfileEditActivity"
             android:label="Edit Profile"
-            android:parentActivityName=".DriverMenu"/>
-
-        <activity android:name=".FineHistory"
+            android:parentActivityName=".DriverMenu" />
+        <activity
+            android:name=".FineHistory"
             android:label="@string/fine_history_1"
             android:parentActivityName=".DriverMenu" />
-
-        <activity android:name=".Payment"
-            android:label="Payment Details">
-        </activity>
-
+        <activity
+            android:name=".Payment"
+            android:label="Payment Details" />
         <activity android:name=".PoliceOfficerMenu" />
         <activity
             android:name=".WriteFine"
@@ -54,28 +55,31 @@
         <activity
             android:name=".OfficerSettings"
             android:label="@string/settings"
-            android:parentActivityName=".PoliceOfficerMenu">
-        </activity>
-        <activity android:name=".UpdateFine"
-            android:label="@string/update">
-        </activity>
-
-            android:label="@string/settings" />
+            android:parentActivityName=".PoliceOfficerMenu" />
+        <activity
+            android:name=".UpdateFine"
+            android:label="@string/update" />
+        android:label="@string/settings" />
         <activity android:name=".insurance_profile" />
-        <activity android:name=".insurance_edit_profile"
+        <activity
+            android:name=".insurance_edit_profile"
             android:label="Edit Profile"
-            android:parentActivityName=".insurance_profile"/>
-        <activity android:name=".DriverRegistration"
-            android:label="Registration"/>
-        <activity android:name=".insurance_track_driver"
-            android:label="Track Driver"/>
-        <activity android:name=".insurance_popwindow"
-            android:theme="@style/AppTheme.CustomTheme">
-        </activity>
-
+            android:parentActivityName=".insurance_profile" />
+        <activity
+            android:name=".DriverRegistration"
+            android:label="Registration" />
+        <activity
+            android:name=".insurance_track_driver"
+            android:label="Track Driver" />
+        <activity
+            android:name=".insurance_popwindow"
+            android:theme="@style/AppTheme.CustomTheme" />
         <activity
             android:name=".SettingUpProfileActivity"
-            android:parentActivityName=".DriverRegistration"></activity>
+            android:parentActivityName=".DriverRegistration" />
+        <activity android:name=".Insurance_accident_report"
+            android:parentActivityName=".insurance_profile"
+            android:label="Accident Report"></activity>
     </application>
 
 </manifest>

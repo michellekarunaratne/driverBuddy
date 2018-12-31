@@ -104,7 +104,9 @@ public class DriverProfileEditActivity extends AppCompatActivity {
         Retrofit retrofit=builder.build();
 
         Api editDriverProfile=retrofit.create(Api.class);
-        Call<Driver> call=editDriverProfile.editDriverProfile(driver);
+        SharedPreferences preferences = getSharedPreferences("driverDetails", MODE_PRIVATE);
+        String token=preferences.getString("Token","Null");
+        Call<Driver> call=editDriverProfile.editDriverProfile(token,driver);
         call.enqueue(new Callback<Driver>() {
 
             @Override

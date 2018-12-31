@@ -7,12 +7,32 @@ public class ViewFineTicket {
     String officer;
     String timestamp;
     String driver;
+    int paid;
+
+    public ViewFineTicket(String offense, String amount, String officer, String timestamp,int paid) {
+        this.offense = offense;
+        this.amount = amount;
+        this.officer = officer;
+        this.timestamp = timestamp;
+        this.paid=paid;
+    }
+
+
+
 
     public ViewFineTicket(String offense, String amount, String officer, String timestamp) {
         this.offense = offense;
         this.amount = amount;
         this.officer = officer;
         this.timestamp = timestamp;
+    }
+
+    public int getPaid() {
+        return paid;
+    }
+
+    public void setPaid(int paid) {
+        this.paid = paid;
     }
 
     public String getDriver() {

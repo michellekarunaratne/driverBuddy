@@ -106,7 +106,9 @@ public class Logging extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(Logging.this,"Something Went Wrong"+t,Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Logging.this,"Something Went Wrong"+t,Toast.LENGTH_SHORT).show();
+                final EditText username = (EditText)findViewById(R.id.editText);
+                username.setError("User Not Found");
             }
         });
     }
@@ -155,7 +157,9 @@ public class Logging extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<Driver> call, Throwable t) {
-                    Toast.makeText(Logging.this,"Something Went Wrong"+t,Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(Logging.this,"Something Went Wrong"+t,Toast.LENGTH_SHORT).show();
+                    final EditText username = (EditText)findViewById(R.id.editText);
+                    username.setError("User Not Found");
                 }
             });
         }
@@ -195,7 +199,8 @@ public class Logging extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<Police> call, Throwable t) {
-                    Toast.makeText(Logging.this,"Something Went Wrong"+t,Toast.LENGTH_SHORT).show();
+                    final EditText username = (EditText)findViewById(R.id.editText);
+                    username.setError("User Not Found");
                 }
             });
         }
@@ -232,8 +237,8 @@ public class Logging extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<Insurance> call, Throwable t) {
-                    Toast.makeText(Logging.this,"Something Went Wrong"+t,Toast.LENGTH_SHORT).show();
-                    Log.d("errorLogin",t.toString());
+                    final EditText username = (EditText)findViewById(R.id.editText);
+                    username.setError("User Not Found");
 
                 }
             });

@@ -7,9 +7,9 @@ public class ViewFineTicket {
     String officer;
     String timestamp;
     String driver;
-    int paid;
+    boolean paid;
 
-    public ViewFineTicket(String offense, String amount, String officer, String timestamp,int paid) {
+    public ViewFineTicket(String offense, String amount, String officer, String timestamp,boolean paid) {
         this.offense = offense;
         this.amount = amount;
         this.officer = officer;
@@ -27,11 +27,11 @@ public class ViewFineTicket {
         this.timestamp = timestamp;
     }
 
-    public int getPaid() {
+    public boolean isPaid() {
         return paid;
     }
 
-    public void setPaid(int paid) {
+    public void setPaid(boolean paid) {
         this.paid = paid;
     }
 

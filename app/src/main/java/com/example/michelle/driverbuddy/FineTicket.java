@@ -13,7 +13,7 @@ public class FineTicket {
     String nic;
     String policeId;
     String fineName;
-    int paid;
+    boolean paid;
 
     public FineTicket(String vehicleNumber, int amount, SpotFine[] fine, Driver[] driver, Police[] police, Date timeStamp) {
         this.vehicleNumber = vehicleNumber;
@@ -24,7 +24,7 @@ public class FineTicket {
         this.timeStamp = timeStamp;
     }
 
-    public FineTicket(String vehicleNumber, int amount, SpotFine[] fine, Driver[] driver, Police[] police, Date timeStamp, String nic, String policeId, String fineName, int paid) {
+    public FineTicket(String vehicleNumber, int amount, SpotFine[] fine, Driver[] driver, Police[] police, Date timeStamp, String nic, String policeId, String fineName, boolean paid) {
         this.vehicleNumber = vehicleNumber;
         this.amount = amount;
         this.fine = fine;
@@ -45,11 +45,11 @@ public class FineTicket {
         this.fineName = fineName;
     }
 
-    public int getPaid() {
+    public boolean isPaid() {
         return paid;
     }
 
-    public void setPaid(int paid) {
+    public void setPaid(boolean paid) {
         this.paid = paid;
     }
 

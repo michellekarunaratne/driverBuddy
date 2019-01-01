@@ -33,7 +33,7 @@ public class FineListAdapter extends ArrayAdapter<ViewFineTicket>{
         String amount=getItem(position).getAmount();
         String officer=getItem(position).getOfficer();
         String timestamp=getItem(position).getTimestamp();
-        int paid=getItem(position).getPaid();
+        boolean paid=getItem(position).isPaid();
 
         ViewFineTicket viewFineTicket=new ViewFineTicket(offense,amount,officer,timestamp,paid);
 
@@ -50,11 +50,11 @@ public class FineListAdapter extends ArrayAdapter<ViewFineTicket>{
         tvOffense.setText(offense);
         tvTimestamp.setText(timestamp);
 
-        if(paid==1)
+        if(paid==true)
         {
             convertView.setBackgroundColor(Color.GREEN);
         }
-        else if(paid==0)
+        else if(paid==false)
         {
             convertView.setBackgroundColor(Color.RED);
         }

@@ -86,7 +86,7 @@ public class FineHistory extends AppCompatActivity {
             String amount=String.valueOf(ticketList.get(i).getAmount());
             String officer=ticketList.get(i).getPolice()[0].getFirstName().charAt(0)+" "+ticketList.get(i).getPolice()[0].getLastName();
             String timestamp=ticketList.get(i).getTimeStamp().toString();
-            int paid=ticketList.get(i).getPaid();
+            boolean paid=ticketList.get(i).isPaid();
 
             fineTickets.add(new ViewFineTicket(offense,amount,officer,timestamp,paid));
         }

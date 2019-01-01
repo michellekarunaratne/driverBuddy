@@ -64,4 +64,7 @@ public interface Api {
     @GET("/viewAccidentReport")
     Call<AccidentReport> viewAccidentReport(@Header("authorization") String token,@Query("nic") String nic,@Query("agentId") String agentId);
 
+    @GET("checkUser")
+    Call<User> checkExisitingUser (@Query("userId") String userI);
+
 }

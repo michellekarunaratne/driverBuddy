@@ -67,7 +67,8 @@
             android:parentActivityName=".insurance_profile" />
         <activity
             android:name=".DriverRegistration"
-            android:label="Registration" />
+            android:label="Registration"
+            android:parentActivityName=".Logging"/>
         <activity
             android:name=".insurance_track_driver"
             android:label="Track Driver" />
@@ -76,7 +77,7 @@
             android:theme="@style/AppTheme.CustomTheme" />
         <activity
             android:name=".SettingUpProfileActivity"
-            android:parentActivityName=".DriverRegistration" />
+            android:label="Setting Up Profile"/>
         <activity android:name=".Insurance_accident_report"
             android:parentActivityName=".insurance_profile"
             android:label="Accident Report"></activity>

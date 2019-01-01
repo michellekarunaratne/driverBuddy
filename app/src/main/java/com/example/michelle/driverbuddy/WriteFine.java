@@ -62,14 +62,20 @@ public class WriteFine extends AppCompatActivity {
 
                     case 1:
                         fineName="using mobile while driving";
+                        min=1000;
+                        max=2000;
                         break;
 
                     case 2:
                         fineName="driving without helmet";
+                        min=1000;
+                        max=3000;
                         break;
 
                     case 3:
                         fineName="exceeding speed limit";
+                        min=2000;
+                        max=3000;
                         break;
                 }
             }

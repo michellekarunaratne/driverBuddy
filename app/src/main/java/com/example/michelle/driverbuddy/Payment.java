@@ -30,17 +30,17 @@ public class Payment extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         InitRequest req = new InitRequest();
-        req.setMerchantId("1211879"); // Your Merchant ID
-        req.setMerchantSecret("DBuddy"); // Your Merchant secret
+        req.setMerchantId("1211879"); //  Merchant ID
+        req.setMerchantSecret("DBuddy"); // Merchant secret
         req.setAmount(100.00); // Amount which the customer should pay
         req.setCurrency("LKR"); // Currency
-        req.setOrderId("fine12345"); // Unique ID for your payment transaction
-        req.setItemsDescription("xxx");  // Item title or Order/Invoice number fine name
+        req.setOrderId("fine123"); // Unique ID for payment transaction
+        req.setItemsDescription("xxx");  // Item title or Order/Invoice number fine name/fine name
         req.setCustom1("Custom message 1");
         req.setCustom2("Custom message 2");
-        req.getCustomer().setFirstName("Amal");
-        req.getCustomer().setLastName("Fernando ");
-        req.getCustomer().setEmail("AmalFer@gmail.com ");
+        req.getCustomer().setFirstName("Deshani");
+        req.getCustomer().setLastName("Vithanage");
+        req.getCustomer().setEmail("deshanivithanagek@gmail.com ");
         req.getCustomer().setPhone("0112802456");
         req.getCustomer().getAddress().setAddress("xxxxxxxxxx");
         req.getCustomer().getAddress().setCity("xxxxxxxxxx");
@@ -54,9 +54,13 @@ public class Payment extends AppCompatActivity {
         intent.putExtra(PHConstants.INTENT_EXTRA_DATA, req);
         PHConfigs.setBaseUrl(PHConfigs.SANDBOX_URL);
         startActivityForResult(intent, PAYHERE_REQUEST);
+
+        onActivityResult( 11010, 12345, intent);
+
     }
 
-    @Override
+
+   @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         //TODO process response

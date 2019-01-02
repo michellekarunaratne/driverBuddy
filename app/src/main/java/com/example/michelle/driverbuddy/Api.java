@@ -52,4 +52,7 @@ public interface Api {
 
     @GET("getfinedetails")
     Call<ArrayList<FineTicket>> getFinedetails(@Query("license") String policeId);
+
+    @GET("viewRecentFineTicket")
+    Call<FineTicket> viewRecentUnpaidFineTicket(@Query("nic") String nic);
 }

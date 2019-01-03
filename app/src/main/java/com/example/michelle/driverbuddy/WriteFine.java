@@ -21,7 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class WriteFine extends AppCompatActivity {
 
     Spinner fineNameSpinner;
-    String fineNames[]={"crossing double lane","using mobile while driving","driving without helmet","exceeding speed limit"};
+    String fineNames[]={"crossing double line","using mobile while driving","driving without helmet","exceeding speed limit"};
     ArrayAdapter<String> adapter;
     String fineName="";
     Button issueFineButton;
@@ -55,7 +55,7 @@ public class WriteFine extends AppCompatActivity {
                 switch (i)
                 {
                     case 0:
-                        fineName="crossing double lane";
+                        fineName="crossing double line";
                         min=500;
                         max=1000;
                         break;
@@ -143,7 +143,8 @@ public class WriteFine extends AppCompatActivity {
     private void sendNetworkRequest(FineTicket fineTicket)
     {
         Retrofit.Builder builder=new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:3000/")
+                //.baseUrl("http://10.0.2.2:3000/")
+                .baseUrl("http://192.168.42.177:3000/")
                 .addConverterFactory(GsonConverterFactory.create());
 
 

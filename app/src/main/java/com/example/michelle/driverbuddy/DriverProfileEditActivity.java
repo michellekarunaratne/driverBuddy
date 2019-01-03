@@ -97,7 +97,8 @@ public class DriverProfileEditActivity extends AppCompatActivity {
     public void sendNetworkRequestForEdit(final Driver driver)
     {
         Retrofit.Builder builder=new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:3000/")
+                //.baseUrl("http://10.0.2.2:3000/")
+                .baseUrl("http://192.168.42.177:3000/")
                 .addConverterFactory(GsonConverterFactory.create());
 
 

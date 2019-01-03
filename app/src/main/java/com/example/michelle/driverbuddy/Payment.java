@@ -29,6 +29,9 @@ public class Payment extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        //Bundle extras = getIntent().getExtras(); String val = extras.getString("fname");
+
+
         InitRequest req = new InitRequest();
         req.setMerchantId("1211879"); //  Merchant ID
         req.setMerchantSecret("DBuddy"); // Merchant secret
@@ -60,7 +63,7 @@ public class Payment extends AppCompatActivity {
     }
 
 
-   @Override
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         //TODO process response

@@ -9,7 +9,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface Api {
-    String BASE_URL= "http://10.0.2.2:3000/";
+   String BASE_URL= "http://10.22.165.0:3000/";
 
     @POST("driverRegister")
     Call<Driver> createAccount(@Body Driver driver);

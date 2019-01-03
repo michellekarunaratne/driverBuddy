@@ -121,14 +121,7 @@ public class DriverMenu extends AppCompatActivity implements NavigationView.OnNa
             }
         });
 
-        /**licence = findViewById(R.id.driver_licenseno);
-        offence=findViewById(R.id.driver_offence);
-        amount=findViewById(R.id.fine_amount);
 
-        SharedPreferences preferences = getSharedPreferences("FineDetails",MODE_PRIVATE);
-        licence.setText(preferences.getString("License","N/A"));
-        offence.setText(preferences.getString("name","N/A"));
-        amount.setText(preferences.getString("amount","N/A"));*/
     }
 
 

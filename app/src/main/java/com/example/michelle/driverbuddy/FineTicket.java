@@ -14,6 +14,7 @@ public class FineTicket {
     String policeId;
     String fineName;
     boolean paid;
+    String _id;
 
     public FineTicket(String vehicleNumber, int amount, SpotFine[] fine, Driver[] driver, Police[] police, Date timeStamp) {
         this.vehicleNumber = vehicleNumber;
@@ -43,6 +44,28 @@ public class FineTicket {
         this.nic = nic;
         this.policeId = policeId;
         this.fineName = fineName;
+    }
+
+    public FineTicket(String vehicleNumber, int amount, SpotFine[] fine, Driver[] driver, Police[] police, Date timeStamp, String nic, String policeId, String fineName, boolean paid, String objectId) {
+        this.vehicleNumber = vehicleNumber;
+        this.amount = amount;
+        this.fine = fine;
+        this.driver = driver;
+        this.police = police;
+        this.timeStamp = timeStamp;
+        this.nic = nic;
+        this.policeId = policeId;
+        this.fineName = fineName;
+        this.paid = paid;
+        this._id = objectId;
+    }
+
+    public String getObjectId() {
+        return _id;
+    }
+
+    public void setObjectId(String objectId) {
+        this._id = objectId;
     }
 
     public boolean getPaid() {

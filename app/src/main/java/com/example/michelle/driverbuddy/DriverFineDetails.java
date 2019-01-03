@@ -24,7 +24,8 @@ public class DriverFineDetails extends AppCompatActivity {
 
     public Button to_pay_button;
     EditText nic_1,vehicle_no,offence,amount;
-
+    static String f_name,l_name,email_1,offence_1,objectid_1;
+    static int mobile_1,amount_1;
 
 
     @Override
@@ -36,14 +37,6 @@ public class DriverFineDetails extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         to_pay_button();
-
-        /*button = findViewById(R.id.button9);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendNetworkRequestForGetRecentTicket();
-            }
-        });*/
 
         nic_1 = (EditText)findViewById(R.id.driver_nic);
         vehicle_no =(EditText)findViewById(R.id.driver_vehicleno);
@@ -76,6 +69,13 @@ public class DriverFineDetails extends AppCompatActivity {
                 offence.setText(response.body().getFine()[0].getDescription());
                 amount.setText(String.valueOf(response.body().getAmount()));
 
+                f_name = response.body().getDriver()[0].getFirstName();
+                l_name = response.body().getDriver()[0].getLastName();
+                email_1 = response.body().getDriver()[0].getEmail();
+                mobile_1 = response.body().getDriver()[0].getMobile();
+                amount_1 = response.body().getAmount();
+                offence_1 = response.body().getFine()[0].getName();
+                objectid_1= response.body().getObjectId();
 
             }
 
@@ -95,26 +95,17 @@ public class DriverFineDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent nextActivity;
-                nextActivity = new Intent(DriverFineDetails.this,Payment.class);
 
-
-                /*String fName_temp = FineTicket.getDriver()[0].getFirstName();
-                String lName_temp   = FineTicket.getDriver()[0].getLastName();
-                String email_temp   = FineTicket.getDriver()[0].getEmail();
-                String mobile_temp = (String.valueOf(FineTicket.getDriver()[0].getMobile()));
-                String offence_temp = FineTicket.getFine()[0].getName();
-                String amount_temp = (String.valueOf(FineTicket.getFine()[0].getAmount()));
-
-                nextActivity.putExtra("fname", fName_temp);
-                nextActivity.putExtra("lname", lName_temp);
-                nextActivity.putExtra("email", email_temp);
-                nextActivity.putExtra("mobile", mobile_temp);
-                nextActivity.putExtra("offence", offence_temp);
-                nextActivity.putExtra("amount", amount_temp);*/
-
-                startActivity(nextActivity);
-
+                Intent intent=new Intent(DriverFineDetails.this,Payment.class);
+                intent.putExtra("fname",f_name );
+                intent.putExtra("lname", l_name);
+                intent.putExtra("email", email_1);
+                intent.putExtra("mobile", mobile_1);
+                intent.putExtra("offence", offence_1);
+                intent.putExtra("amount", amount_1);
+                intent.putExtra("id", objectid_1);
+                startActivity(intent);
+                //Toast.makeText(DriverFineDetails.this,f_name,Toast.LENGTH_LONG).show();
             }
         });
     }

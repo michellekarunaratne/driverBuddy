@@ -55,4 +55,8 @@ public interface Api {
 
     @GET("viewRecentFineTicket")
     Call<FineTicket> viewRecentUnpaidFineTicket(@Query("nic") String nic);
+
+    @GET("updatePaidStatus")
+    Call<FineTicket> updatepaidstatus(@Query("id") String id);
 }
+

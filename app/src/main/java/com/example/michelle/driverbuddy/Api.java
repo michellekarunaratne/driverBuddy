@@ -58,5 +58,8 @@ public interface Api {
 
     @GET("updatePaidStatus")
     Call<FineTicket> updatepaidstatus(@Query("id") String id);
+
+    @GET("sendEmailToDriverPaymentStatus")
+    Call<Email> sendmail(@Query("email") String email);
 }
 

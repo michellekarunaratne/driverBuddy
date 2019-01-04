@@ -26,10 +26,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Payment extends AppCompatActivity {
 
-    private static final String TAG = "  ";
-    private final static int PAYHERE_REQUEST = 11010;
-    TextView message;
-    public static String id_1;
+    private static final String TAG = "fine";
+    private final static int PAYHERE_REQUEST = 11010; //a unique key
+    //TextView message;
+    public static String id_1,email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,16 +41,16 @@ public class Payment extends AppCompatActivity {
 
         String fName = getIntent().getExtras().getString("fname");
         String lName = getIntent().getExtras().getString("lname");
-        String email = getIntent().getExtras().getString("email");
+        email = getIntent().getExtras().getString("email");
         String mobile = String.valueOf(getIntent().getExtras().getInt("mobile"));
         double amount = Double.parseDouble(String.valueOf(getIntent().getExtras().getInt("amount")));
         DecimalFormat df = new DecimalFormat("#.00");
         double amount_to_double=Double.valueOf(df.format(amount));
+        String offence = getIntent().getExtras().getString("offence");
 
          id_1 = getIntent().getExtras().getString("id");
         //Toast.makeText(Payment.this,String.valueOf(amount),Toast.LENGTH_LONG).show();
 
-        String offence = getIntent().getExtras().getString("offence");
 
         InitRequest req = new InitRequest();
         req.setMerchantId("1211879"); //  Merchant ID
@@ -78,11 +78,11 @@ public class Payment extends AppCompatActivity {
         PHConfigs.setBaseUrl(PHConfigs.SANDBOX_URL);
         startActivityForResult(intent, PAYHERE_REQUEST);
 
-        onActivityResult( 11010, 12345, intent);
+        //onActivityResult( 11010, 12345, intent);
 
     }
 
-
+    //fetch payment status
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -93,14 +93,16 @@ public class Payment extends AppCompatActivity {
             if (response.isSuccess()) {
                 msg = "Activity result:" + response.getData().toString();
                 Log.d(TAG, msg);
-                sendNetworkRequestToUpdatePayment(id_1);
+                sendNetworkRequestToUpdatePayment(id_1); //when payment is done update status to paid
+                sendNetworkRequesttoSendMail("msumalini@gmail.com");
             } else {
                 msg = "Result:" + response.toString();
                 Log.d(TAG, msg);
             }
-            message.setText(msg);
+            //message.setText(msg);
         }
     }
+
 
     public void sendNetworkRequestToUpdatePayment(String id_1){
         Retrofit.Builder builder = new Retrofit.Builder()
@@ -128,6 +130,39 @@ public class Payment extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    public void sendNetworkRequesttoSendMail(String email){
+        Retrofit.Builder builder = new Retrofit.Builder()
+                //.baseUrl("http://10.0.2.2:3000/")
+                .baseUrl("http://192.168.42.107:3000/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = builder.build();
+
+        Api send_email = retrofit.create(Api.class);
+        Call<Email> call = send_email.sendmail(email);
+        call.enqueue(new Callback<Email>() {
+            @Override
+            public void onResponse(Call<Email> call, Response<Email> response) {
+                if(response.body().getAccepted()!=null){
+                    Toast.makeText(Payment.this,"Email send successfully",Toast.LENGTH_LONG).show();
+                }
+                else if(response.body().getAccepted() !=null){
+                    Toast.makeText(Payment.this,"Error occured while sending email",Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Email> call, Throwable t) {
+                Toast.makeText(Payment.this,"Something went wrong"+t, Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+
+
 
     }
 

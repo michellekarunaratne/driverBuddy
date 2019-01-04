@@ -47,6 +47,21 @@ public class DriverFineDetails extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        nic_1 = (EditText)findViewById(R.id.driver_nic);
+        vehicle_no =(EditText)findViewById(R.id.driver_vehicleno);
+        offence =(EditText)findViewById(R.id.driver_offence_1);
+        amount = (EditText)findViewById(R.id.driver_amount_fine);
+
+        nic_1.setText(" ");
+        vehicle_no.setText(" ");
+        offence.setText(" ");
+        amount.setText(" ");
+    }
+
     public void sendNetworkRequestForGetRecentTicket() {
         Retrofit.Builder builder = new Retrofit.Builder()
                 //.baseUrl("http://10.0.2.2:3000/")
@@ -82,7 +97,7 @@ public class DriverFineDetails extends AppCompatActivity {
             @Override
             public void onFailure(Call<FineTicket> call, Throwable t) {
                 Toast.makeText(DriverFineDetails.this,"No un-paid fines",Toast.LENGTH_LONG).show();
-                nic_1.setError(String.valueOf(t));
+                //nic_1.setError(String.valueOf(t));
             }
         });
 

@@ -87,7 +87,7 @@ public class Logging extends AppCompatActivity {
     {
         Retrofit.Builder builder=new Retrofit.Builder()
                 //.baseUrl("http://10.0.2.2:3000/")
-                .baseUrl("http://192.168.42.177:3000/")
+                .baseUrl("http://192.168.42.49:3000/")
                 .addConverterFactory(GsonConverterFactory.create());
 
 
@@ -109,7 +109,7 @@ public class Logging extends AppCompatActivity {
             public void onFailure(Call<User> call, Throwable t) {
                 //Toast.makeText(Logging.this,"Something Went Wrong"+t,Toast.LENGTH_SHORT).show();
                 final EditText username = (EditText)findViewById(R.id.editText);
-                username.setError("User Not Found");
+                username.setError("User Not Found"+t);
             }
         });
     }
@@ -118,7 +118,7 @@ public class Logging extends AppCompatActivity {
     {
         Retrofit.Builder builder=new Retrofit.Builder()
                 //.baseUrl("http://10.0.2.2:3000/")
-                .baseUrl("http://192.168.42.177:3000/")
+                .baseUrl("http://192.168.42.49:3000/")
                 .addConverterFactory(GsonConverterFactory.create());
 
 

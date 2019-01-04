@@ -9,6 +9,7 @@ public class Driver {
     String email;
     int license;
     String token;
+    String _id;
 
     public Driver(String firstName, String lastName, String email, String nic, int license, int mobile) {
         this.nic = nic;
@@ -27,6 +28,25 @@ public class Driver {
         this.email = email;
         this.license = license;
         this.token=token;
+    }
+
+    public Driver(String nic, String firstName, String lastName, int mobile, String email, int license, String token, String _id) {
+        this.nic = nic;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.mobile = mobile;
+        this.email = email;
+        this.license = license;
+        this.token = token;
+        this._id = _id;
+    }
+
+    public String getObjectId() {
+        return _id;
+    }
+
+    public void setObjectId(String objectId) {
+        this._id = objectId;
     }
 
     public String getNic() {

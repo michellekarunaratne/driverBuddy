@@ -13,6 +13,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PoliceOfficerMenu extends AppCompatActivity {
 
@@ -77,6 +86,7 @@ public class PoliceOfficerMenu extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("policeDetails",MODE_PRIVATE);
         name.setText(preferences.getString("Name","N/A"));
         officeId.setText(preferences.getString("PoliceId","N/A"));
+        sendNetworkIssuedFineCount(preferences.getString("PoliceId","N/A"));
     }
 
     public void write_fine_button()
@@ -127,6 +137,31 @@ public class PoliceOfficerMenu extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void sendNetworkIssuedFineCount(String policeId)
+    {
+        Retrofit.Builder builder=new Retrofit.Builder()
+                //.baseUrl("http://10.0.2.2:3000/")
+                .baseUrl("http://192.168.42.49:3000/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit=builder.build();
+
+        Api api=retrofit.create(Api.class);
+        Call<ArrayList<FineTicket>> call=api.getCurrentlyIssuedTickets(policeId);
+        call.enqueue(new Callback<ArrayList<FineTicket>>() {
+            @Override
+            public void onResponse(Call<ArrayList<FineTicket>> call, Response<ArrayList<FineTicket>> response) {
+                TextView fineCount=findViewById(R.id.policeMenuIssuedFine);
+                fineCount.setText(String.valueOf(response.body().size()));
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<FineTicket>> call, Throwable t) {
+                Toast.makeText(PoliceOfficerMenu.this,"Something Went Wrong"+t,Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }

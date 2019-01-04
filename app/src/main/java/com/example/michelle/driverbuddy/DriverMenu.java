@@ -2,6 +2,7 @@ package com.example.michelle.driverbuddy;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.PersistableBundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
@@ -15,7 +16,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -71,6 +74,7 @@ public class DriverMenu extends AppCompatActivity implements NavigationView.OnNa
         actionBarDrawerToggle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        sendNetworkRequestGetTickets(preferences.getString("Nic","Null"));
 
     }
 
@@ -110,6 +114,46 @@ public class DriverMenu extends AppCompatActivity implements NavigationView.OnNa
         return super.onOptionsItemSelected(item);
     }
 
+    public void sendNetworkRequestGetTickets(String nic)
+    {
+        Retrofit.Builder builder=new Retrofit.Builder()
+                //.baseUrl("http://10.0.2.2:3000/")
+                .baseUrl("http://192.168.42.49:3000/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit=builder.build();
+
+        Api api=retrofit.create(Api.class);
+        Call<ArrayList<FineTicket>> call=api.getCurrentMonthlyTickets(nic);
+        call.enqueue(new Callback<ArrayList<FineTicket>>() {
+            @Override
+            public void onResponse(Call<ArrayList<FineTicket>> call, Response<ArrayList<FineTicket>> response) {
+                int length=response.body().size();
+                TextView conduct=findViewById(R.id.driverMenuConductTextVIew);
+                if(length>=0 && length<=3)
+                {
+                    conduct.setBackgroundColor(Color.GREEN);
+                    conduct.setText("GOOD");
+                }
+                else if(length>3 && length<=10)
+                {
+                    conduct.setBackgroundColor(Color.YELLOW);
+                    conduct.setText("Average");
+                }
+                else
+                {
+                    conduct.setBackgroundColor(Color.RED);
+                    conduct.setText("Bad");
+                }
+            }
+
+
+            @Override
+            public void onFailure(Call<ArrayList<FineTicket>> call, Throwable t) {
+                Toast.makeText(DriverMenu.this,"Something Went Wrong"+t,Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
 
 }

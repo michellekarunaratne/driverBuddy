@@ -100,7 +100,7 @@
             android:id="@+id/button_check_license"
             android:layout_width="256dp"
             android:layout_height="41dp"
-            android:layout_marginBottom="248dp"
+            android:layout_marginBottom="228dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -159,6 +159,33 @@
             android:textSize="18sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/textView21"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="28dp"
+            android:text="Monthly Issued Fine "
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+        <TextView
+            android:id="@+id/policeMenuIssuedFine"
+            android:layout_width="180dp"
+            android:layout_height="23dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="36dp"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/policeMenuOfficerId" />
 
     </android.support.constraint.ConstraintLayout>
 

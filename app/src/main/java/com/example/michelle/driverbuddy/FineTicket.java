@@ -14,6 +14,8 @@ public class FineTicket {
     String policeId;
     String fineName;
     boolean paid;
+    int month;
+    int year;
 
     public FineTicket(String vehicleNumber, int amount, SpotFine[] fine, Driver[] driver, Police[] police, Date timeStamp) {
         this.vehicleNumber = vehicleNumber;

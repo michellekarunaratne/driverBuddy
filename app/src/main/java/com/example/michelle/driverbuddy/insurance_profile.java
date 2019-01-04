@@ -13,6 +13,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class insurance_profile extends AppCompatActivity {
 
@@ -101,8 +110,32 @@ public class insurance_profile extends AppCompatActivity {
             }
         });
 
+        sendNetworkRequestForReportCount(preferences.getString("AgentId","Null"));
+    }
 
+    public void sendNetworkRequestForReportCount(String agentId)
+    {
+        Retrofit.Builder builder=new Retrofit.Builder()
+                //.baseUrl("http://10.0.2.2:3000/")
+                .baseUrl("http://192.168.42.49:3000/")
+                .addConverterFactory(GsonConverterFactory.create());
 
+        Retrofit retrofit=builder.build();
+
+        Api api=retrofit.create(Api.class);
+        Call<ArrayList<AccidentReport>>call=api.getCurrentlyIssuedReports(agentId);
+        call.enqueue(new Callback<ArrayList<AccidentReport>>() {
+            @Override
+            public void onResponse(Call<ArrayList<AccidentReport>> call, Response<ArrayList<AccidentReport>> response) {
+                TextView reportCount=findViewById(R.id.insuranceMenuReportCount);
+                reportCount.setText(String.valueOf(response.body().size()));
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<AccidentReport>> call, Throwable t) {
+                Toast.makeText(insurance_profile.this,"Something Went Wrong"+t,Toast.LENGTH_SHORT).show();
+            }
+        });
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

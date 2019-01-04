@@ -13,6 +13,8 @@ public class AccidentReport {
     String nic;
     String agentId;
     String insuranceNumber;
+    int month;
+    int year;
 
     public AccidentReport(String vehicleNo,String place, String description,String insuranceNumber,Driver[] driver,Insurance[] insurance,Date timeStamp) {
         this.vehicleNo = vehicleNo;

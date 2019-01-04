@@ -144,7 +144,7 @@ public class WriteFine extends AppCompatActivity {
     {
         Retrofit.Builder builder=new Retrofit.Builder()
                 //.baseUrl("http://10.0.2.2:3000/")
-                .baseUrl("http://192.168.42.177:3000/")
+                .baseUrl("http://192.168.42.49:3000/")
                 .addConverterFactory(GsonConverterFactory.create());
 
 
@@ -157,7 +157,19 @@ public class WriteFine extends AppCompatActivity {
         call.enqueue(new Callback<FineTicket>() {
             @Override
             public void onResponse(Call<FineTicket> call, Response<FineTicket> response) {
-                Toast.makeText(WriteFine.this,"Sucessfully Issued The Fine Ticket",Toast.LENGTH_SHORT).show();
+                if(response.body().getVehicleNumber()!=null) {
+                    Toast.makeText(WriteFine.this, "Sucessfully Issued The Fine Ticket", Toast.LENGTH_SHORT).show();
+                    final EditText nic=(EditText)findViewById(R.id.fineDriverNic);
+                    final EditText vehicleNumber=(EditText) findViewById(R.id.fineDriverVehicleNumber);
+                    final EditText amount=(EditText) findViewById(R.id.fineDriverAmount);
+                    nic.setText("");
+                    vehicleNumber.setText("");
+                    amount.setText("");
+                }
+                else
+                {
+                    Toast.makeText(WriteFine.this,"Unsucessfull,Something Went Wrong",Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override

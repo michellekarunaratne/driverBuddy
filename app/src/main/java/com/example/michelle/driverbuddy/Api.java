@@ -61,10 +61,19 @@ public interface Api {
     @POST("/secure-api/enterAccidentReport")
     Call<AccidentReport> enterAccidentReport(@Header("authorization") String token,@Body AccidentReport accidentReport);
 
-    @GET("/viewAccidentReport")
+    @GET("/secure-api/viewAccidentReport")
     Call<AccidentReport> viewAccidentReport(@Header("authorization") String token,@Query("nic") String nic,@Query("agentId") String agentId);
 
     @GET("checkUser")
     Call<User> checkExisitingUser (@Query("userId") String userI);
+
+    @GET("getCurrentMonthTickets")
+    Call<ArrayList<FineTicket>> getCurrentMonthlyTickets(@Query("nic") String nic);
+
+    @GET("getCurrentlyIssuedTickets")
+    Call<ArrayList<FineTicket>> getCurrentlyIssuedTickets(@Query("policeId")String policeId);
+
+    @GET("getCurrentlyIssuedReports")
+    Call<ArrayList<AccidentReport>> getCurrentlyIssuedReports(@Query("agentId") String agentId);
 
 }

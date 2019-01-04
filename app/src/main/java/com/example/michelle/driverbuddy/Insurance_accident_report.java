@@ -176,7 +176,7 @@ public class Insurance_accident_report extends AppCompatActivity {
     public void sendNetworkRequestDriver(String nic) {
         Retrofit.Builder builder = new Retrofit.Builder()
                 //.baseUrl("http://10.0.2.2:3000/")
-                .baseUrl("http://192.168.42.177:3000/")
+                .baseUrl("http://192.168.42.49:3000/")
                 .addConverterFactory(GsonConverterFactory.create());
 
 
@@ -204,7 +204,7 @@ public class Insurance_accident_report extends AppCompatActivity {
     {
         Retrofit.Builder builder = new Retrofit.Builder()
                 //.baseUrl("http://10.0.2.2:3000/")
-                .baseUrl("http://192.168.42.177:3000/")
+                .baseUrl("http://192.168.42.49:3000/")
                 .addConverterFactory(GsonConverterFactory.create());
 
 
@@ -231,7 +231,7 @@ public class Insurance_accident_report extends AppCompatActivity {
     {
         Retrofit.Builder builder = new Retrofit.Builder()
                 //.baseUrl("http://10.0.2.2:3000/")
-                .baseUrl("http://192.168.42.177:3000/")
+                .baseUrl("http://192.168.42.49:3000/")
                 .addConverterFactory(GsonConverterFactory.create());
 
 
@@ -243,12 +243,14 @@ public class Insurance_accident_report extends AppCompatActivity {
         call.enqueue(new Callback<AccidentReport>() {
             @Override
             public void onResponse(Call<AccidentReport> call, Response<AccidentReport> response) {
-                String[] text=response.body().getPlace().split(" ");
-                insuranceNumber.setText(response.body().getInsuranceNumber());
-                longitude.setText(text[0]);
-                latitude.setText(text[1]);
-                vehicleNumber.setText(response.body().getVehicleNo());
-                damageDescription.setText(response.body().getDescription());
+                if(response.body().getDriver()!=null) {
+                    String[] text = response.body().getPlace().split(" ");
+                    insuranceNumber.setText(response.body().getInsuranceNumber());
+                    longitude.setText(text[0]);
+                    latitude.setText(text[1]);
+                    vehicleNumber.setText(response.body().getVehicleNo());
+                    damageDescription.setText(response.body().getDescription());
+                }
 
             }
 

@@ -94,7 +94,8 @@ public class Payment extends AppCompatActivity {
                 msg = "Activity result:" + response.getData().toString();
                 Log.d(TAG, msg);
                 sendNetworkRequestToUpdatePayment(id_1); //when payment is done update status to paid
-                sendNetworkRequesttoSendMail("msumalini@gmail.com");
+                sendNetworkRequesttoSendMail(email);
+
             } else {
                 msg = "Result:" + response.toString();
                 Log.d(TAG, msg);
@@ -106,8 +107,8 @@ public class Payment extends AppCompatActivity {
 
     public void sendNetworkRequestToUpdatePayment(String id_1){
         Retrofit.Builder builder = new Retrofit.Builder()
-                //.baseUrl("http://10.0.2.2:3000/")
-                .baseUrl("http://192.168.42.107:3000/")
+                .baseUrl("http://10.0.2.2:3000/")
+                //.baseUrl("http://192.168.42.107:3000/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
@@ -135,8 +136,8 @@ public class Payment extends AppCompatActivity {
 
     public void sendNetworkRequesttoSendMail(String email){
         Retrofit.Builder builder = new Retrofit.Builder()
-                //.baseUrl("http://10.0.2.2:3000/")
-                .baseUrl("http://192.168.42.107:3000/")
+                .baseUrl("http://10.0.2.2:3000/")
+                //.baseUrl("http://192.168.42.107:3000/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
@@ -150,7 +151,7 @@ public class Payment extends AppCompatActivity {
                     Toast.makeText(Payment.this,"Email send successfully",Toast.LENGTH_LONG).show();
                 }
                 else if(response.body().getAccepted() !=null){
-                    Toast.makeText(Payment.this,"Error occured while sending email",Toast.LENGTH_LONG).show();
+                    Toast.makeText(Payment.this,"Error occurred while sending email",Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -160,9 +161,6 @@ public class Payment extends AppCompatActivity {
 
             }
         });
-
-
-
 
     }
 

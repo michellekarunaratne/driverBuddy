@@ -64,8 +64,8 @@ public class DriverFineDetails extends AppCompatActivity {
 
     public void sendNetworkRequestForGetRecentTicket() {
         Retrofit.Builder builder = new Retrofit.Builder()
-                //.baseUrl("http://10.0.2.2:3000/")
-                .baseUrl("http://192.168.42.107:3000/")
+                .baseUrl("http://10.0.2.2:3000/")
+                //.baseUrl("http://192.168.42.107:3000/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
@@ -74,7 +74,7 @@ public class DriverFineDetails extends AppCompatActivity {
 
         SharedPreferences preferences = getSharedPreferences("driverDetails", MODE_PRIVATE);
         String nic=preferences.getString("Nic","Null");
-        Call<FineTicket> call = fine_details.viewRecentUnpaidFineTicket("957591051v");
+        Call<FineTicket> call = fine_details.viewRecentUnpaidFineTicket(nic);
         call.enqueue(new Callback<FineTicket>() {
 
             @Override

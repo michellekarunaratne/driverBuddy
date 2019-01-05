@@ -115,8 +115,8 @@ public class Payment extends AppCompatActivity {
 
         Api payment_status = retrofit.create(Api.class);
 
-        SharedPreferences preferences = getSharedPreferences("driverDetails", MODE_PRIVATE);
-        String id=preferences.getString("Id","Null");
+        //SharedPreferences preferences = getSharedPreferences("driverDetails", MODE_PRIVATE);
+        //String id=preferences.getString("Id","Null");
         Call<FineTicket> call = payment_status.updatepaidstatus(id_1);
         call.enqueue(new Callback<FineTicket>() {
             @Override

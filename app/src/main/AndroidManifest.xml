@@ -36,7 +36,8 @@
         <activity android:name=".PoliceOfficerMenu" />
         <activity
             android:name=".WriteFine"
-            android:label="@string/issue_fine_1" />
+            android:label="@string/issue_fine_1"
+            android:parentActivityName=".PoliceOfficerMenu"/>
         <activity
             android:name=".CheckLicense"
             android:label="@string/check_license" />
@@ -68,7 +69,7 @@
         <activity
             android:name=".DriverRegistration"
             android:label="Registration"
-            android:parentActivityName=".Logging"/>
+            android:parentActivityName=".Logging" />
         <activity
             android:name=".insurance_track_driver"
             android:label="Track Driver" />
@@ -77,10 +78,11 @@
             android:theme="@style/AppTheme.CustomTheme" />
         <activity
             android:name=".SettingUpProfileActivity"
-            android:label="Setting Up Profile"/>
-        <activity android:name=".Insurance_accident_report"
-            android:parentActivityName=".insurance_profile"
-            android:label="Accident Report"></activity>
+            android:label="Setting Up Profile" />
+        <activity
+            android:name=".Insurance_accident_report"
+            android:label="Accident Report"
+            android:parentActivityName=".insurance_profile" />
     </application>
 
 </manifest>

@@ -109,15 +109,24 @@ public class insurance_profile extends AppCompatActivity {
                 return true;
             }
         });
-
-        sendNetworkRequestForReportCount(preferences.getString("AgentId","Null"));
+        if(preferences.getBoolean("Once",false))
+        {
+            sendNetworkRequestForReportCount(preferences.getString("AgentId", "Null"));
+        }
+        else
+        {
+            TextView reportCount=findViewById(R.id.insuranceMenuReportCount);
+            reportCount.setText(String.valueOf(preferences.getInt("ReportCount",0)));
+        }
     }
 
     public void sendNetworkRequestForReportCount(String agentId)
     {
+        Toast.makeText(insurance_profile.this,"Loading....",Toast.LENGTH_SHORT).show();
         Retrofit.Builder builder=new Retrofit.Builder()
                 //.baseUrl("http://10.0.2.2:3000/")
-                .baseUrl("http://192.168.42.49:3000/")
+                //.baseUrl("http://192.168.42.49:3000/")
+                .baseUrl("https://driverbuddy.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit=builder.build();
@@ -129,6 +138,11 @@ public class insurance_profile extends AppCompatActivity {
             public void onResponse(Call<ArrayList<AccidentReport>> call, Response<ArrayList<AccidentReport>> response) {
                 TextView reportCount=findViewById(R.id.insuranceMenuReportCount);
                 reportCount.setText(String.valueOf(response.body().size()));
+                SharedPreferences preferences=getSharedPreferences("insuranceDetails",MODE_PRIVATE);
+                SharedPreferences.Editor editor=preferences.edit();
+                editor.putBoolean("Once",false);
+                editor.putInt("ReportCount",response.body().size());
+                editor.commit();
             }
 
             @Override

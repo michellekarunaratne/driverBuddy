@@ -6,25 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".FineHistory">
 
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="368dp"
-        android:layout_height="28dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ListView
         android:id="@+id/fineListView"
         android:layout_width="368dp"
         android:layout_height="508dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="50dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"

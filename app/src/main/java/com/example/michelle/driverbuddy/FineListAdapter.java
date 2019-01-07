@@ -52,11 +52,11 @@ public class FineListAdapter extends ArrayAdapter<ViewFineTicket>{
 
         if(paid==true)
         {
-            convertView.setBackgroundColor(Color.GREEN);
+            convertView.setBackgroundColor(Color.parseColor("#8de018"));
         }
         else if(paid==false)
         {
-            convertView.setBackgroundColor(Color.RED);
+            convertView.setBackgroundColor(Color.parseColor("#b20101"));
         }
 
         return convertView;

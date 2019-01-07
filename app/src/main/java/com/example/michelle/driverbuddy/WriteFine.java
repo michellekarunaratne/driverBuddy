@@ -23,7 +23,7 @@ public class WriteFine extends AppCompatActivity {
     Spinner fineNameSpinner;
     String fineNames[]={"crossing double line","using mobile while driving","driving without helmet","exceeding speed limit"};
     ArrayAdapter<String> adapter;
-    String fineName="";
+    String fineName="crossing double line";
     Button issueFineButton;
     int min,max;
 
@@ -144,14 +144,15 @@ public class WriteFine extends AppCompatActivity {
     {
         Retrofit.Builder builder=new Retrofit.Builder()
                 //.baseUrl("http://10.0.2.2:3000/")
-                .baseUrl("http://192.168.42.49:3000/")
+                //.baseUrl("http://192.168.42.49:3000/")
+                .baseUrl("https://driverbuddy.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create());
 
 
         Retrofit retrofit=builder.build();
 
         Api writeFine=retrofit.create(Api.class);
-        SharedPreferences preferences = getSharedPreferences("policeDetails", MODE_PRIVATE);
+        final SharedPreferences preferences = getSharedPreferences("policeDetails", MODE_PRIVATE);
         String token=preferences.getString("Token","Null");
         Call<FineTicket>call=writeFine.createFineTicket(token,fineTicket);
         call.enqueue(new Callback<FineTicket>() {
@@ -162,6 +163,10 @@ public class WriteFine extends AppCompatActivity {
                     final EditText nic=(EditText)findViewById(R.id.fineDriverNic);
                     final EditText vehicleNumber=(EditText) findViewById(R.id.fineDriverVehicleNumber);
                     final EditText amount=(EditText) findViewById(R.id.fineDriverAmount);
+                    SharedPreferences preferences = getSharedPreferences("policeDetails", MODE_PRIVATE);
+                    SharedPreferences.Editor editor=preferences.edit();
+                    editor.putBoolean("Once",true);
+                    editor.commit();
                     nic.setText("");
                     vehicleNumber.setText("");
                     amount.setText("");

@@ -50,9 +50,11 @@ public class FineHistory extends AppCompatActivity {
 
     private void sendNetworkRequest(String nic)
     {
+        Toast.makeText(FineHistory.this,"Loading....",Toast.LENGTH_SHORT).show();
         Retrofit.Builder builder=new Retrofit.Builder()
                 //.baseUrl("http://10.0.2.2:3000/")
-                .baseUrl("http://192.168.42.49:3000/")
+                //.baseUrl("http://192.168.42.49:3000/")
+                .baseUrl("https://driverbuddy.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create());
 
 

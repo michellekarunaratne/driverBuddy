@@ -86,7 +86,14 @@ public class PoliceOfficerMenu extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("policeDetails",MODE_PRIVATE);
         name.setText(preferences.getString("Name","N/A"));
         officeId.setText(preferences.getString("PoliceId","N/A"));
-        sendNetworkIssuedFineCount(preferences.getString("PoliceId","N/A"));
+        if(preferences.getBoolean("Once",false)) {
+            sendNetworkIssuedFineCount(preferences.getString("PoliceId", "N/A"));
+        }
+        else
+        {
+            TextView fineCount=findViewById(R.id.policeMenuIssuedFine);
+            fineCount.setText(String.valueOf(preferences.getInt("FineCount",0)));
+        }
     }
 
     public void write_fine_button()
@@ -141,9 +148,11 @@ public class PoliceOfficerMenu extends AppCompatActivity {
 
     public void sendNetworkIssuedFineCount(String policeId)
     {
+        Toast.makeText(PoliceOfficerMenu.this,"Loading....",Toast.LENGTH_LONG).show();
         Retrofit.Builder builder=new Retrofit.Builder()
                 //.baseUrl("http://10.0.2.2:3000/")
-                .baseUrl("http://192.168.42.49:3000/")
+                //.baseUrl("http://192.168.42.49:3000/")
+                .baseUrl("https://driverbuddy.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit=builder.build();
@@ -155,6 +164,11 @@ public class PoliceOfficerMenu extends AppCompatActivity {
             public void onResponse(Call<ArrayList<FineTicket>> call, Response<ArrayList<FineTicket>> response) {
                 TextView fineCount=findViewById(R.id.policeMenuIssuedFine);
                 fineCount.setText(String.valueOf(response.body().size()));
+                SharedPreferences preferences=getSharedPreferences("policeDetails",MODE_PRIVATE);
+                SharedPreferences.Editor editor=preferences.edit();
+                editor.putBoolean("Once",false);
+                editor.putInt("FineCount",response.body().size());
+                editor.commit();
             }
 
             @Override

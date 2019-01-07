@@ -87,7 +87,8 @@ public class Logging extends AppCompatActivity {
     {
         Retrofit.Builder builder=new Retrofit.Builder()
                 //.baseUrl("http://10.0.2.2:3000/")
-                .baseUrl("http://192.168.42.49:3000/")
+                //.baseUrl("http://192.168.42.49:3000/")
+                .baseUrl("https://driverbuddy.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create());
 
 
@@ -118,7 +119,8 @@ public class Logging extends AppCompatActivity {
     {
         Retrofit.Builder builder=new Retrofit.Builder()
                 //.baseUrl("http://10.0.2.2:3000/")
-                .baseUrl("http://192.168.42.49:3000/")
+                //.baseUrl("http://192.168.42.49:3000/")
+                .baseUrl("https://driverbuddy.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create());
 
 
@@ -152,6 +154,7 @@ public class Logging extends AppCompatActivity {
                     editor.putInt("Mobile",mobile);
                     editor.putString("Nic",nic);
                     editor.putString("Token",token);
+                    editor.putBoolean("Once",true);
                     editor.commit();
                     startActivity(driverMenu);
                     finish();
@@ -193,6 +196,7 @@ public class Logging extends AppCompatActivity {
                     editor.putInt("Mobile",mobile);
                     editor.putString("Nic",nic);
                     editor.putString("Token",token);
+                    editor.putBoolean("Once",true);
                     editor.commit();
 
                     startActivity(policeMenu);
@@ -232,6 +236,7 @@ public class Logging extends AppCompatActivity {
                     editor.putInt("Mobile",mobile);
                     editor.putString("Nic",nic);
                     editor.putString("Token",token);
+                    editor.putBoolean("Once",true);
                     editor.commit();
                     startActivity(insuranceMenu);
                     finish();

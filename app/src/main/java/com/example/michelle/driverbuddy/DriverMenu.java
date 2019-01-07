@@ -74,8 +74,30 @@ public class DriverMenu extends AppCompatActivity implements NavigationView.OnNa
         actionBarDrawerToggle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        sendNetworkRequestGetTickets(preferences.getString("Nic","Null"));
+        if(preferences.getBoolean("Once",false)) {
+            sendNetworkRequestGetTickets(preferences.getString("Nic", "Null"));
+        }
+        else
+        {
+            TextView conduct=findViewById(R.id.driverMenuConductTextVIew);
+            String conductString=preferences.getString("Conduct","N/A");
+            if(conductString.equals("GOOD"))
+            {
+                conduct.setText(conductString);
+                conduct.setBackgroundColor(Color.GREEN);
+            }
+            else if(conductString.equals("Average"))
+            {
+                conduct.setText(conductString);
+                conduct.setBackgroundColor(Color.YELLOW);
+            }
+            else
+            {
+                conduct.setText(conductString);
+                conduct.setBackgroundColor(Color.RED);
+            }
 
+        }
     }
 
     @Override
@@ -116,9 +138,11 @@ public class DriverMenu extends AppCompatActivity implements NavigationView.OnNa
 
     public void sendNetworkRequestGetTickets(String nic)
     {
+        Toast.makeText(DriverMenu.this,"Loading....",Toast.LENGTH_SHORT).show();
         Retrofit.Builder builder=new Retrofit.Builder()
                 //.baseUrl("http://10.0.2.2:3000/")
-                .baseUrl("http://192.168.42.49:3000/")
+                //.baseUrl("http://192.168.42.49:3000/")
+                .baseUrl("https://driverbuddy.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit=builder.build();
@@ -129,22 +153,34 @@ public class DriverMenu extends AppCompatActivity implements NavigationView.OnNa
             @Override
             public void onResponse(Call<ArrayList<FineTicket>> call, Response<ArrayList<FineTicket>> response) {
                 int length=response.body().size();
+                final String conductTextView;
                 TextView conduct=findViewById(R.id.driverMenuConductTextVIew);
                 if(length>=0 && length<=3)
                 {
                     conduct.setBackgroundColor(Color.GREEN);
-                    conduct.setText("GOOD");
+                    conduct.setText("Good");
+                    conductTextView="Good";
+
                 }
                 else if(length>3 && length<=10)
                 {
                     conduct.setBackgroundColor(Color.YELLOW);
                     conduct.setText("Average");
+                    conductTextView="Average";
                 }
                 else
                 {
                     conduct.setBackgroundColor(Color.RED);
                     conduct.setText("Bad");
+                    conductTextView="Bad";
                 }
+                SharedPreferences preferences = getSharedPreferences("driverDetails",MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putBoolean("Once",false);
+                editor.putString("Conduct",conductTextView);
+                editor.commit();
+
+
             }
 
 

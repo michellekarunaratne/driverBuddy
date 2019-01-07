@@ -27,7 +27,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Insurance_accident_report extends AppCompatActivity {
+public class Insurance_accident_report extends AppCompatActivity{
 
     CheckBox enterCheck, viewCheck;
     Button search, getLocation, store;
@@ -47,7 +47,7 @@ public class Insurance_accident_report extends AppCompatActivity {
         viewCheck = (CheckBox)findViewById(R.id.accident_report_view);
 
 
-        getLocation = (Button) findViewById(R.id.insurance_accident_report_getLocation_button);
+        //getLocation = (Button) findViewById(R.id.insurance_accident_report_getLocation_button);
         store = (Button) findViewById(R.id.insurance_accident_report_store_button);
         search = (Button) findViewById(R.id.insurance_accident_report_search_button);
         nic = (EditText) findViewById(R.id.insurance_accident_report_search_nic);
@@ -102,12 +102,12 @@ public class Insurance_accident_report extends AppCompatActivity {
             }
         });
 
-        getLocation.setOnClickListener(new View.OnClickListener() {
+        /*getLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getCurrentLocation();
             }
-        });
+        });*/
 
         store.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,7 +142,7 @@ public class Insurance_accident_report extends AppCompatActivity {
         String insuranceNumberText=insuranceNumber.getText().toString().trim();
         String vehicleNumberText=vehicleNumber.getText().toString().trim();
         String damage=damageDescription.getText().toString().trim();
-        String place=String.valueOf(longitude.getText()).trim()+" "+String.valueOf(latitude.getText().toString()).trim();
+        String place=String.valueOf(longitude.getText()).trim()+";"+String.valueOf(latitude.getText().toString()).trim();
         if (!nicText.contains("v")) {
             nic.setError("Invalid NIC");
         }
@@ -173,7 +173,7 @@ public class Insurance_accident_report extends AppCompatActivity {
         }
     }
 
-    public void sendNetworkRequestDriver(String nic) {
+    public void sendNetworkRequestDriver(final String nic) {
         Retrofit.Builder builder = new Retrofit.Builder()
                 //.baseUrl("http://10.0.2.2:3000/")
                 //.baseUrl("http://192.168.42.49:3000/")
@@ -195,7 +195,10 @@ public class Insurance_accident_report extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Driver> call, Throwable t) {
-                Toast.makeText(Insurance_accident_report.this, "Something Went Wrong " + t, Toast.LENGTH_LONG).show();
+                //Toast.makeText(Insurance_accident_report.this, "Something Went Wrong " + t, Toast.LENGTH_LONG).show();
+                EditText nic = (EditText) findViewById(R.id.insurance_accident_report_search_nic);
+                nic.setError("User Not Found");
+
 
             }
         });
@@ -247,7 +250,7 @@ public class Insurance_accident_report extends AppCompatActivity {
             @Override
             public void onResponse(Call<AccidentReport> call, Response<AccidentReport> response) {
                 if(response.body().getDriver()!=null) {
-                    String[] text = response.body().getPlace().split(" ");
+                    String[] text = response.body().getPlace().split(";");
                     insuranceNumber.setText(response.body().getInsuranceNumber());
                     longitude.setText(text[0]);
                     latitude.setText(text[1]);
@@ -280,6 +283,7 @@ public class Insurance_accident_report extends AppCompatActivity {
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
+
                 longitude.setText(String.valueOf(location.getLongitude()));
                 latitude.setText(String.valueOf(location.getLatitude()));
 
@@ -320,6 +324,14 @@ public class Insurance_accident_report extends AppCompatActivity {
         }
 
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getCurrentLocation();
+    }
+
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
